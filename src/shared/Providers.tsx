@@ -1,5 +1,5 @@
 'use client';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createAppTheme } from '../../public/theme/theme';
 import ErrorBoundary from '@/shared/components/ErrorBoundary';
 

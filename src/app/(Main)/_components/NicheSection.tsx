@@ -140,12 +140,22 @@ export const NicheSection = () => {
         </Box>
 
         {/* 4방향 버튼 */}
-        {[
-          { top: -150, left: -20, type: 'educational', url: '/educational', textPosition: 'top' },
-          { top: -150, right: -20, type: 'community', url: '/community', textPosition: 'top' },
-          { bottom: -50, left: -20, type: 'medical', url: '/medical' },
-          { bottom: -50, right: -20, type: 'professional', url: '/professional' },
-        ].map((btn, idx) => (
+        {(
+          [
+            { top: -150, left: -20, type: 'educational', url: '/educational', textPosition: 'top' },
+            { top: -150, right: -20, type: 'community', url: '/community', textPosition: 'top' },
+            { bottom: -50, left: -20, type: 'medical', url: '/medical' },
+            { bottom: -50, right: -20, type: 'professional', url: '/professional' },
+          ] as {
+            top?: number;
+            left?: number;
+            bottom?: number;
+            right?: number;
+            type: 'educational' | 'community' | 'medical' | 'professional';
+            url: string;
+            textPosition?: 'top' | 'bottom';
+          }[]
+        ).map((btn, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 60 }}
@@ -164,7 +174,7 @@ export const NicheSection = () => {
             }}
             whileHover={{ scale: 1.1 }}
           >
-            <CategoryRouteButton type={btn.type as any} url={btn.url} textPosition={btn.textPosition as any} />
+            <CategoryRouteButton type={btn.type} url={btn.url} textPosition={btn.textPosition} />
           </motion.div>
         ))}
       </Box>

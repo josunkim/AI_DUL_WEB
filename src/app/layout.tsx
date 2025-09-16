@@ -1,17 +1,6 @@
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/shared/components/Header';
 import { Providers } from '@/shared/Providers';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata = {
   title: 'AI.DUL - 세대를 잇는 정서케어 AI 파트너',
