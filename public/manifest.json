@@ -1,0 +1,27 @@
+{
+  "name": "AI.DUL - 세대를 잇는 정서케어 AI 파트너",
+  "short_name": "AI.DUL",
+  "description": "발달-상담-임상심리 전문가가 개발한 멀티 모달 데이터 기반의 AI 케어 파트너",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/img/logoImg.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/logoImg.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "education", "lifestyle"],
+  "lang": "ko",
+  "dir": "ltr"
+} 
