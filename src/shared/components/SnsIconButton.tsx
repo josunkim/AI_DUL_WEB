@@ -8,10 +8,10 @@ interface SnsIconButtonProps {
   imageSrc: StaticImageData;
   alt: string;
   url: string;
-  sx?: SxProps<Theme>; // MUI 스타일 가능
+  sx?: SxProps<Theme>;
 }
 
-export default function SnsIconButton({ imageSrc, alt, url, sx }: SnsIconButtonProps) {
+export default function SnsIconButton({ imageSrc, alt, url }: SnsIconButtonProps) {
   const handleClick = () => {
     window.open(url, '_blank');
   };

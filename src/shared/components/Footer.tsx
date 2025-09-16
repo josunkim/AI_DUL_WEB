@@ -1,6 +1,6 @@
 'use client';
 
-import { Stack, Typography, Box } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import AppDownloadButton from '@/shared/components/AppDownloadButton';
 import SnsIconButton from '@/shared/components/SnsIconButton';
 
