@@ -19,8 +19,7 @@ export default function BackgroundVideo({ videoSrc, children, playbackRate = 1 }
 
   return (
     <section className='relative min-h-screen w-full overflow-hidden'>
-      <video ref={videoRef} className='absolute inset-0 z-0 h-full w-full object-fill' src={videoSrc} autoPlay loop muted playsInline />
-
+      <video ref={videoRef} className='absolute inset-0 z-0 h-full w-full object-fill' src={videoSrc} autoPlay loop preload='auto' muted playsInline />
       {children}
     </section>
   );

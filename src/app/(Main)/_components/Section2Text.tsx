@@ -12,7 +12,6 @@ export const Section2Text = () => {
       alignItems='flex-end'
       height='100vh'
       width='100%'
-      px={{ xs: 4, md: 10 }}
       sx={{
         fontWeight: 'bold',
         color: 'common.white',
@@ -24,7 +23,7 @@ export const Section2Text = () => {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.4 }}
         textAlign='center'
         sx={{
           position: 'relative',

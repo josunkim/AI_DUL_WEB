@@ -3,13 +3,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { Divider } from '@mui/material';
 
 export const Section1Text = () => {
   return (
     <Box
       height='100vh'
       maxWidth='100%'
-      justifyContent='center'
+      justifyContent={['center', 'center', 'flex-start']}
       alignItems={['center', 'center', 'flex-start']}
       position='relative'
       zIndex={10}
@@ -37,27 +38,16 @@ export const Section1Text = () => {
         </Typography>
 
         {/* 구분선 + 서브텍스트 */}
-        <Box
+        <Divider sx={{ height: '2px', bgcolor: 'white', my: 2 }} />
+        <Typography
           sx={{
-            mt: { xs: 10, md: 16, xl: 20 },
-            pt: { xs: 10, md: 16, xl: 20 },
-            borderTop: {
-              xs: '1px solid rgba(255,255,255,0.5)',
-              md: '2px solid rgba(255,255,255,0.5)',
-            },
-            width: '100%',
+            pb: { xs: 6, md: 8, xl: 10 },
+            fontSize: 'clamp(1.25rem, 4vw, 3.5rem)',
+            fontWeight: 600,
           }}
         >
-          <Typography
-            sx={{
-              pb: { xs: 6, md: 8, xl: 10 },
-              fontSize: 'clamp(1.25rem, 4vw, 3.5rem)',
-              fontWeight: 600,
-            }}
-          >
-            정신을 위한 기술, 삶을 위한 혁신
-          </Typography>
-        </Box>
+          정신을 위한 기술, 삶을 위한 혁신
+        </Typography>
       </Box>
     </Box>
   );

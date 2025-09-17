@@ -36,7 +36,7 @@ export const NicheSection = () => {
         width: '100%',
         minHeight: '100vh',
         alignItems: 'center',
-        justifyContent: 'start',
+        justifyContent: { xs: 'center', md: 'start' },
       }}
     >
       {/* 왼쪽 텍스트 */}
