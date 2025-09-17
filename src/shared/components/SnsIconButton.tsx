@@ -2,8 +2,7 @@
 
 import Image, { StaticImageData } from 'next/image';
 import IconButton from '@mui/material/IconButton';
-import { SxProps, Theme, useTheme } from '@mui/material';
-import { use } from 'react';
+import { SxProps, Theme } from '@mui/material';
 
 interface SnsIconButtonProps {
   imageSrc: StaticImageData;
