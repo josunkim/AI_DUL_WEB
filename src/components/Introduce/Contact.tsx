@@ -6,24 +6,24 @@ import { Box, Container, Stack, Typography } from '@mui/material';
 export const Contact = () => {
   return (
     <Container
-      // component='section'
+      component='section'
       sx={{
         display: 'flex',
         width: '100%',
         minHeight: 'full',
         flexDirection: { xs: 'column', md: 'row' },
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         gap: { xs: 5, md: 10 },
         pt: 5,
       }}
     >
       {/* 지도 영역 */}
-      <Box sx={{ flex: 1, height: 'full' }}>
+      <Box sx={{ width: '100%', height: 'full' }}>
         <KakaoMap />
       </Box>
 
       {/* 정보 영역 */}
-      <Stack justifyContent={'space-between'}>
+      <Stack width={'100%'} justifyContent={'space-between'}>
         <Typography variant='h2' sx={{ fontSize: { xs: '2.5rem', md: '3.5rem', xl: '4rem' }, fontWeight: 'bold' }}>
           Contact
         </Typography>

@@ -51,11 +51,9 @@ const Footer = () => {
         <Typography variant='h6' gutterBottom>
           Follow Us
         </Typography>
-        <Stack alignContent='center' flexDirection='row'>
+        <Stack flexDirection='row' gap={1}>
           {snsItems.map((item, idx) => (
-            <Stack key={idx}>
-              <SnsIconButton imageSrc={item.icon} alt={`sns-${idx}`} url={item.url} />
-            </Stack>
+            <SnsIconButton key={idx} imageSrc={item.icon} alt={`sns-${idx}`} url={item.url} />
           ))}
         </Stack>
       </Stack>
