@@ -2,24 +2,26 @@
 
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import { Box } from '@mui/system';
+import { SLOGAN } from '../core/text';
+
+const MotionBox = motion(Box);
 
 export const MainSlogan = () => {
   const spanRef = React.useRef<HTMLSpanElement | null>(null);
   const isInView = useInView(spanRef, { once: true, amount: 0.7 });
 
   return (
-    <Container
-      component='section'
-      disableGutters
+    <Box
       sx={{
-        mb: { xs: 5, md: 0 },
-        minHeight: { xs: 500, md: '100vh' },
         display: 'flex',
         flexDirection: 'column',
+        mb: { xs: 5, md: 0 },
+        width: '100%',
+        minHeight: { xs: 500, md: '100vh' },
         alignItems: 'center',
+        justifyContent: 'center',
         gap: { xs: 1.5, md: 6 },
         bgcolor: 'white',
         textAlign: 'center',
@@ -27,7 +29,7 @@ export const MainSlogan = () => {
       }}
     >
       {/* 메인 슬로건 */}
-      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true, amount: 0.7 }}>
+      <MotionBox initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true, amount: 0.7 }}>
         <Typography
           component='h2'
           sx={{
@@ -55,7 +57,7 @@ export const MainSlogan = () => {
               textAlign: 'start',
             }}
           >
-            같은 자극, 다른 반응
+            {SLOGAN.title}
           </Typography>
           <Typography
             component='p'
@@ -65,15 +67,15 @@ export const MainSlogan = () => {
             }}
           >
             <Box component='span' sx={{ fontSize: [30, 40, 80], fontWeight: 800 }}>
-              AI.DUL
+              {SLOGAN.middle}
             </Box>
-            은 그 차이를 깊이 이해합니다
+            {SLOGAN.mainTitle}
           </Typography>
         </Typography>
-      </motion.div>
+      </MotionBox>
 
       {/* 설명 문단 */}
-      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }} viewport={{ once: true, amount: 0.7 }}>
+      <MotionBox initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }} viewport={{ once: true, amount: 0.7 }}>
         <Typography
           sx={{
             fontSize: { xs: '1rem', md: '1.5rem', xl: '2rem' },
@@ -81,13 +83,13 @@ export const MainSlogan = () => {
             mt: 2,
           }}
         >
-          차별적 민감성 이론(Differential Susceptibility Theory)을 바탕으로
+          {SLOGAN.description1}
           <br />
-          뇌가 환경에 반응하는 개인의 특성을 분석하여
+          {SLOGAN.description2}
           <br />
-          아이부터 노인까지 전 생애 맞춤형 성장과 정신건강을 설계합니다
+          {SLOGAN.description3}
         </Typography>
-      </motion.div>
+      </MotionBox>
 
       {/* 애니메이션 텍스트 */}
       <Box
@@ -99,8 +101,8 @@ export const MainSlogan = () => {
           mt: 3,
         }}
       >
-        {'For Better or For Worse'.split('').map((char, i) => (
-          <motion.span
+        {SLOGAN.point.split('').map((char, i) => (
+          <MotionBox
             key={i}
             initial={{ opacity: 0, y: 30 }}
             animate={
@@ -120,9 +122,9 @@ export const MainSlogan = () => {
             style={{ display: 'inline-block' }}
           >
             {char === ' ' ? '\u00A0' : char}
-          </motion.span>
+          </MotionBox>
         ))}
       </Box>
-    </Container>
+    </Box>
   );
 };

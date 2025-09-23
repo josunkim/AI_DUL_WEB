@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { SECTION2 } from '../core/text';
 
 export const Section2Text = () => {
   return (
@@ -33,7 +34,7 @@ export const Section2Text = () => {
           lineHeight: 'clamp(1.2rem, 2.8vw, 3.5rem)',
         }}
       >
-        스마트한 지원으로 아기부터 더 나은 출발,&nbsp;
+        {SECTION2.headline}&nbsp;
         <Box
           component='span'
           sx={{
@@ -41,9 +42,9 @@ export const Section2Text = () => {
             fontWeight: 'inherit',
           }}
         >
-          AI.DUL
+          {SECTION2.middle}
         </Box>
-        과 함께하는 행복한 인생 여정
+        {SECTION2.description}
       </Typography>
     </Box>
   );
