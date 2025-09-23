@@ -1,3 +1,4 @@
+import Footer from '@/shared/components/Footer';
 import './globals.css';
 import Header from '@/shared/components/Header';
 import { Providers } from '@/shared/Providers';
@@ -14,6 +15,9 @@ export const metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: '/assets/Img/logoImg.png',
+  },
   metadataBase: new URL('https://aidul.com'),
   manifest: '/manifest.json',
   openGraph: {
@@ -23,7 +27,7 @@ export const metadata = {
     siteName: 'AI.DUL',
     images: [
       {
-        url: '/assets/img/logoImg.png',
+        url: '/assets/Img/logoImg.png',
         width: 1200,
         height: 630,
         alt: 'AI.DUL 로고',
@@ -71,7 +75,8 @@ export default function RootLayout({
       <body>
         <Providers>
           <Header />
-          {children}
+          <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
