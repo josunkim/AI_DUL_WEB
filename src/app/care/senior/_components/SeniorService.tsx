@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 import smartWatch from '@/assets/img/smartWatch.png';
 import seniorAi from '@/assets/img/seniorAi.png';

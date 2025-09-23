@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const MotionBox = motion(Box);
 
