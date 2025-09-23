@@ -4,8 +4,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Stack } from '@mui/system';
 import BackgroundVideo from '@/shared/components/BackgroundVideo';
-import Footer from '@/shared/components/Footer';
-import { Contact } from '@/components/Introduce/Contact';
 import { Section1Text } from './_components/Section1Text';
 import { Section2Text } from './_components/Section2Text';
 import { MainSlogan } from './_components/MainSlogan';
@@ -43,14 +41,11 @@ export default function Home() {
         </SwiperSlide>
       </Swiper>
       {/* Other Sections */}
+
       <SectionWhatWeDo />
       <MainSlogan />
       <GenerationCareIntro />
       <NicheSection />
-      <Stack pt={4} justifyContent={'center'} alignContent={'center'} justifyItems={'center'} alignItems={'center'} pb={4}>
-        <Contact />
-      </Stack>
-      <Footer />
     </Stack>
   );
 }
