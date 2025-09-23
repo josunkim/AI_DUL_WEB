@@ -1,19 +1,85 @@
+'use client';
+
+import React from 'react';
+import Box from '@mui/material/Box';
+
 interface CircleContentProps {
   backgroundVideoSrc?: string;
+  /** tailwind `bgColor` 대신 MUI theme 색상 또는 hex 사용 */
   bgColor?: string;
   className?: string;
   children: React.ReactNode;
 }
 
-export default function CircleContent({ backgroundVideoSrc, bgColor, className, children }: CircleContentProps) {
+export const CircleContent = ({ backgroundVideoSrc, bgColor, className, children }: CircleContentProps) => {
   return (
-    <div
-      className={`relative flex items-center justify-center overflow-hidden rounded-full p-4 text-center text-lg font-bold text-gray-900 shadow-lg ${bgColor} ${className}`}
-      style={{ aspectRatio: '1/1' }}
+    <Box
+      className={className}
+      sx={{
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        borderRadius: '50%',
+        p: 4,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: '1.125rem', // text-lg
+        color: 'grey.900',
+        boxShadow: 6,
+        bgcolor: bgColor || 'transparent',
+        aspectRatio: '1 / 1', // 원형 비율 유지
+      }}
     >
-      {backgroundVideoSrc && <video src={backgroundVideoSrc} autoPlay loop muted playsInline className='absolute inset-0 z-0 h-full w-full object-cover' />}
-      {backgroundVideoSrc && <div className='absolute inset-0 z-5 rounded-full bg-black/30' />}
-      <div className={`relative z-10 flex h-full w-full items-center justify-center ${backgroundVideoSrc ? 'text-white drop-shadow-lg' : ''}`}>{children}</div>
-    </div>
+      {backgroundVideoSrc && (
+        <Box
+          component='video'
+          src={backgroundVideoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+          }}
+        />
+      )}
+
+      {backgroundVideoSrc && (
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '50%',
+            bgcolor: 'rgba(0,0,0,0.3)',
+            zIndex: 5,
+          }}
+        />
+      )}
+
+      <Box
+        sx={{
+          position: 'relative',
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
+          ...(backgroundVideoSrc && {
+            color: 'common.white',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+          }),
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
   );
-}
+};
