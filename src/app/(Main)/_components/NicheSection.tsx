@@ -5,7 +5,9 @@ import catchingPhoneImg from '@/assets/img/catchingPhoneImg.svg';
 import { motion } from 'framer-motion';
 import CategoryRouteButton from '@/shared/components/CategoryRouteButton';
 import { Box, Container, Typography } from '@mui/material';
+import { NICHE } from '../core/text';
 
+const MotionBox = motion(Box);
 export const NicheSection = () => {
   // 애니메이션 variants 정의
   const centerImgVariants = {
@@ -50,7 +52,7 @@ export const NicheSection = () => {
           mb: { xl: 8 },
         }}
       >
-        <motion.div variants={leftTitleVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+        <MotionBox variants={leftTitleVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
           <Typography
             component='div'
             sx={{
@@ -63,23 +65,25 @@ export const NicheSection = () => {
           >
             <Box sx={{ alignSelf: { xs: 'center', md: 'flex-end' } }}>
               <Box component='span' sx={{ fontSize: 'clamp(1.5rem, 4.5vw, 4.5rem)', fontWeight: 800 }}>
-                AI.DUL
+                {NICHE.mainTitle}
               </Box>
-              은 다름을 읽고,
+              {NICHE.title}
             </Box>
-            <Box sx={{ alignSelf: { xs: 'center', md: 'flex-end' } }}>맞춤 환경을 만들어갑니다</Box>
+            <Box sx={{ alignSelf: { xs: 'center', md: 'flex-end' } }}>{NICHE.title2}</Box>
           </Typography>
-        </motion.div>
+        </MotionBox>
 
-        <motion.div variants={leftTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+        <MotionBox variants={leftTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
           <Box textAlign='center'>
             <Typography fontSize={{ xs: '1rem', md: '1.1rem', xl: '1.25rem' }}>
-              발달적 적소(Niche)는 <br />
-              개인의 특성에 꼭 맞는, 최적의 성장 환경을 의미합니다 <br />
-              개인의 차이를 읽고 각자에게 맞는 환경을 찾는 것이 중요합니다
+              {NICHE.description1}
+              <br />
+              {NICHE.description2}
+              <br />
+              {NICHE.description3}
             </Typography>
           </Box>
-        </motion.div>
+        </MotionBox>
       </Box>
 
       {/* 중앙 원형 + 버튼 */}
@@ -121,22 +125,22 @@ export const NicheSection = () => {
             alignItems: 'center',
           }}
         >
-          <motion.div variants={centerImgVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+          <MotionBox variants={centerImgVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
             <Box sx={{ width: { xs: '5rem', md: '8rem', xl: '12rem' }, height: { xs: '5rem', md: '8rem', xl: '12rem' } }}>
               <Image src={catchingPhoneImg} alt='중앙 이미지' style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </Box>
-          </motion.div>
+          </MotionBox>
 
-          <motion.div variants={centerTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+          <MotionBox variants={centerTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
             <Typography textAlign='center' sx={{ mt: 1, fontSize: { xs: '0.75rem', md: '1rem', xl: '1.75rem' }, fontWeight: 'bold', color: '#133f3c' }}>
               <Box component='span' sx={{ fontSize: { xs: '1rem', md: '1.25rem', xl: '1.75rem' }, fontWeight: 600 }}>
-                AI.DUL
+                {NICHE.imgtext1}
               </Box>
-              에 기록된
+              {NICHE.imgtext2}
               <br />
-              마이 데이터
+              {NICHE.imgtext3}
             </Typography>
-          </motion.div>
+          </MotionBox>
         </Box>
 
         {/* 4방향 버튼 */}
@@ -156,7 +160,7 @@ export const NicheSection = () => {
             textPosition?: 'top' | 'bottom';
           }[]
         ).map((btn, idx) => (
-          <motion.div
+          <MotionBox
             key={idx}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +179,7 @@ export const NicheSection = () => {
             whileHover={{ scale: 1.1 }}
           >
             <CategoryRouteButton type={btn.type} url={btn.url} textPosition={btn.textPosition} />
-          </motion.div>
+          </MotionBox>
         ))}
       </Box>
     </Container>

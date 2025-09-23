@@ -4,6 +4,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
+import { SECTION1 } from '../core/text';
 
 export const Section1Text = () => {
   return (
@@ -34,7 +35,7 @@ export const Section1Text = () => {
             fontWeight: 800,
           }}
         >
-          AI 휴먼웰빙케어
+          {SECTION1.headline}
         </Typography>
 
         {/* 구분선 + 서브텍스트 */}
@@ -46,7 +47,7 @@ export const Section1Text = () => {
             fontWeight: 600,
           }}
         >
-          정신을 위한 기술, 삶을 위한 혁신
+          {SECTION1.description}
         </Typography>
       </Box>
     </Box>

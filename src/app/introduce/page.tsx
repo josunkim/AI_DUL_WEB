@@ -1,15 +1,14 @@
-import CompanyHistory from '@/components/Introduce/CompanyHistory';
-import { Contact } from '@/components/Introduce/Contact';
-import MainIntro from '@/components/Introduce/MainIntro';
-import WithCompany from '@/components/Introduce/WithCompany';
+import { CompanyHistory } from './_components/CompanyHistory';
+import { MainIntro } from './_components/MainIntro';
+import { WithCompany } from './_components/WithCompany';
 
-export default function Introduce() {
+const Introduce = () => {
   return (
     <>
-      <MainIntro></MainIntro>
-      <CompanyHistory></CompanyHistory>
-      <WithCompany></WithCompany>
-      <Contact></Contact>
+      <MainIntro />
+      <CompanyHistory />
+      <WithCompany />
     </>
   );
-}
+};
+export default Introduce;

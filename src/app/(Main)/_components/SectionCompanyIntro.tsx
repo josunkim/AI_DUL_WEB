@@ -1,5 +1,5 @@
 import React from 'react';
-import CircleContent from '@/shared/components/CircleContent';
+import { CircleContent } from '@/shared/components/CircleContent';
 import Image from 'next/image';
 import SolutionImg from '@/assets/img/solution.png';
 
