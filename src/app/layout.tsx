@@ -1,7 +1,7 @@
 import Footer from '@/shared/components/Footer';
-import './globals.css';
 import Header from '@/shared/components/Header';
 import { Providers } from '@/shared/Providers';
+import { GlobalStyles, Stack } from '@mui/system';
 
 export const metadata = {
   title: 'AI.DUL - 세대를 잇는 정서케어 AI 파트너',
@@ -73,9 +73,30 @@ export default function RootLayout({
     <html lang='ko'>
       <head></head>
       <body>
+        <GlobalStyles
+          styles={{
+            html: {
+              height: '100%',
+              overflow: 'hidden',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': { display: 'none' },
+            },
+            body: {
+              margin: 0,
+              padding: 0,
+              height: '100%',
+              overflow: 'auto',
+              overflowX: 'hidden',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': { display: 'none' },
+            },
+          }}
+        />
         <Providers>
           <Header />
-          <main>{children}</main>
+          <main>
+            <Stack sx={{ width: '100%', height: '100%', minHeight: '100vh' }}>{children}</Stack>
+          </main>
           <Footer />
         </Providers>
       </body>
