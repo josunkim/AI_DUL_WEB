@@ -28,6 +28,7 @@ const ChildApp = () => {
         px: { xs: 2, sm: 4, md: 8 },
         py: { xs: 6, sm: 8 },
         height: { xl: '100vh' },
+        bgcolor: 'background.paper',
       }}
     >
       {/* 왼쪽 텍스트 영역 */}

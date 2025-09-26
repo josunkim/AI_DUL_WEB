@@ -7,12 +7,8 @@ import SeniorService from './_components/SeniorService';
 export default function SeniorCarePage() {
   return (
     <>
-      <ResponsiveContainer>
-        <MainIntro />
-      </ResponsiveContainer>
-      <ResponsiveContainer>
-        <SeniorService />
-      </ResponsiveContainer>
+      <MainIntro />
+      <SeniorService />
     </>
   );
 }

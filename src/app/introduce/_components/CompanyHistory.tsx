@@ -11,6 +11,7 @@ export const CompanyHistory = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
+        bgcolor: 'background.paper',
         p: 4,
       }}
     >

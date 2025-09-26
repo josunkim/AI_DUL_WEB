@@ -47,8 +47,7 @@ const SectionWhatWeDo = () => {
       ref={sectionRef}
       sx={{
         minHeight: { xs: 650, md: '100vh' },
-        bgcolor: 'white',
-        p: { xs: 2, md: 4 },
+        bgcolor: 'background.paper',
         display: 'flex',
         flexDirection: 'column',
         gap: { xs: 4, md: 8 },

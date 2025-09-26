@@ -31,6 +31,7 @@ export const GenerationCareIntro = () => {
         justifyContent: 'center',
         gap: { xs: '2.5rem', md: '6rem', xl: '10rem' },
         p: { xs: 4, md: 10 },
+        bgcolor: 'background.paper',
       }}
     >
       {/* 제목 */}

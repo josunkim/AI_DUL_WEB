@@ -21,8 +21,9 @@ export const WithCompany = () => {
       sx={{
         width: '100%',
         mx: 'auto',
-        paddingX: 16,
+        paddingX: { xs: 4, md: 8, xl: 16 },
         minHeight: '100vh',
+        justifyContent: 'center',
         display: 'flex',
         flexDirection: 'column',
         gap: 8,
@@ -51,7 +52,7 @@ export const WithCompany = () => {
             x: {
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 20,
+              duration: 40,
               ease: 'linear',
             },
           }}

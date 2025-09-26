@@ -15,7 +15,6 @@ export const Contact = () => {
         px: { xs: 4, md: 8 },
         minHeight: 'full',
         flexDirection: { xs: 'column', md: 'row' },
-
         gap: { xs: 5, md: 10 },
         pt: 5,
       }}

@@ -26,7 +26,7 @@ const AdultCareGoodFit = () => {
         justifyContent: 'center',
         width: '100%',
         minHeight: '100vh',
-        bgcolor: 'white',
+        bgcolor: 'background.paper',
         gap: 4,
         px: { xs: 2, md: 4 },
       }}
