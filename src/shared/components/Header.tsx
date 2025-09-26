@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -17,17 +16,15 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { MENU_ITEMS, PATH } from '@/shared/Constant';
+import { HEADER_MENU_ITEMS, MENU_ITEMS, PATH } from '@/shared/Constant';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
-  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const go = (path: string) => () => {
-    router.push(path);
+  const go = () => () => {
     setAnchorEl(null);
     setMobileOpen(false);
   };
@@ -57,24 +54,26 @@ export default function Header() {
 
           {/* PC/태블릿 메뉴 */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-            <Button color='inherit' onClick={go('/')}>
-              Home
-            </Button>
+            <Link href={PATH.HOME} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button color='inherit'>Home</Button>
+            </Link>
 
             {/* 서비스 드롭다운 */}
             <Button color='inherit' onClick={handleMenuOpen} aria-controls={Boolean(anchorEl) ? 'service-menu' : undefined} aria-haspopup='true' aria-expanded={Boolean(anchorEl) ? 'true' : undefined}>
               서비스
             </Button>
             <Menu id='service-menu' anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-              <MenuItem onClick={go(PATH.CARE_CHILD)}>아동</MenuItem>
-              <MenuItem onClick={go(PATH.CARE_ADULT)}>부모</MenuItem>
-              <MenuItem onClick={go(PATH.CARE_SENIOR)}>노인</MenuItem>
-              <MenuItem onClick={go(PATH.EDUCATIONAL)}>교육기관</MenuItem>
+              {HEADER_MENU_ITEMS.map((item) => (
+                <Link key={item.path} href={item.path} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <MenuItem onClick={go()}>{item.label}</MenuItem>
+                </Link>
+              ))}
             </Menu>
-
-            <Button color='inherit' onClick={go(PATH.INTRODUCE)}>
-              회사 소개
-            </Button>
+            <Link href={PATH.INTRODUCE} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button color='inherit' onClick={go()}>
+                회사 소개
+              </Button>
+            </Link>
           </Box>
 
           {/* 모바일 햄버거 버튼 */}
@@ -89,9 +88,11 @@ export default function Header() {
             <List component='nav'>
               {MENU_ITEMS.map((item) => (
                 <ListItem key={item.path} disablePadding>
-                  <ListItemButton onClick={go(item.path)}>
-                    <ListItemText primary={item.label} />
-                  </ListItemButton>
+                  <Link href={item.path} passHref>
+                    <ListItemButton onClick={go()}>
+                      <ListItemText primary={item.label} />
+                    </ListItemButton>
+                  </Link>
                 </ListItem>
               ))}
             </List>

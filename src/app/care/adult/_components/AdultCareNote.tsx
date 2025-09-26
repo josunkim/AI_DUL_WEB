@@ -6,8 +6,10 @@ import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import calendarImg from '@/assets/img/calendarImg.png';
-const MotionBox = motion(Box);
-export default function AdultCareNote() {
+import { ADULT_CARE_NOTE } from '../core/text';
+
+const MotionBox = motion.create(Box);
+const AdultCareNote = () => {
   const greenBoxRef = useRef(null);
   const textRef = useRef(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -95,36 +97,35 @@ export default function AdultCareNote() {
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
         >
-          노트(Note): 가족 공유 공간
+          {ADULT_CARE_NOTE.title}
         </Typography>
 
         <Typography
           fontWeight={600}
           mb={3}
           fontSize='clamp(20px, 1.875vw, 36px)'
+          whiteSpace={'pre-line'}
           component={motion.div}
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
         >
-          &quot;바쁜 우리 부부, 서로 이야기 할 시간도 없어요&quot;
+          {ADULT_CARE_NOTE.subtitle}
         </Typography>
 
         <Typography
           fontSize='clamp(1rem, 1.5625vw, 30px)'
+          whiteSpace={'pre-line'}
           lineHeight={1.5}
           component={motion.div}
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
         >
-          &apos;노트&apos;는 마음을 전하는 가족 공간입니다
-          <br />
-          일상 스케줄, 놓치기 쉬운 하루의 감정과 기억을
-          <br />
-          부부가 함께 사진, 일기, 메모 등으로 남기고 나눕니다
+          {ADULT_CARE_NOTE.description}
         </Typography>
       </MotionBox>
     </Box>
   );
-}
+};
+export default AdultCareNote;

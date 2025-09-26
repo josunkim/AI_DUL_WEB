@@ -12,7 +12,7 @@ import Stack from '@mui/material/Stack';
 import { PATH } from '@/shared/Constant';
 import { GENERATION } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 export const GenerationCareIntro = () => {
   const buttonsRef = React.useRef(null);
   const isInView = useInView(buttonsRef, {

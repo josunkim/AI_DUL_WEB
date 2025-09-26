@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { SLOGAN } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export const MainSlogan = () => {
   const spanRef = React.useRef<HTMLSpanElement | null>(null);

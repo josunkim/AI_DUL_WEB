@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Box, Typography } from '@mui/material';
 import { SECTION3, STEP } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const features = STEP;
 
@@ -17,7 +17,7 @@ const SectionWhatWeDo = () => {
 
   // step 증가
   useEffect(() => {
-    if (step >= 0 && step < features.length) {
+    if (step >= -1 && step < features.length) {
       timerRef.current = setTimeout(() => {
         setStep((prev) => prev + 1);
       }, 800);

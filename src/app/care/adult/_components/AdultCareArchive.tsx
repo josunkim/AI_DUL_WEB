@@ -4,12 +4,12 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box } from '@mui/material';
-
-const MotionBox = motion(Box);
-
 import calendarImg from '@/assets/img/calendarImg.png';
+import { ADULT_CARE_ARCHIVE } from '../core/text';
 
-export default function AdultCareArchive() {
+const MotionBox = motion.create(Box);
+
+const AdultCareArchive = () => {
   const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -92,33 +92,28 @@ export default function AdultCareArchive() {
             width: '100%',
           }}
         >
-          아카이브: 가족 성장 모니터링
+          {ADULT_CARE_ARCHIVE.title}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(1rem, 1.875vw, 36px)' }}
+          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(1rem, 1.875vw, 36px)', whiteSpace: 'pre-line' }}
         >
-          “도대체 왜 그러는 걸까?”
-          <br />
-          이제 감이 아닌 과학으로, 가족을 이해하세요
+          {ADULT_CARE_ARCHIVE.subtitle}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6 }}
+          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
         >
-          &apos;아카이브&apos;는
-          <br />
-          가족의 기질 조합, 정서, 행동, 인지,
-          <br />
-          생활의 변화가 정밀하게 모니터링됩니다
+          {ADULT_CARE_ARCHIVE.description}
         </MotionBox>
       </MotionBox>
     </Box>
   );
-}
+};
+export default AdultCareArchive;

@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box } from '@mui/material';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 import calendarImg from '@/assets/img/calendarImg.png';
+import { ADULT_CARE_GOOD_FIT } from '../core/text';
 
-export default function AdultCareGoodFit() {
+const AdultCareGoodFit = () => {
   const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -102,7 +103,7 @@ export default function AdultCareGoodFit() {
             fontSize: 'clamp(1.2rem, 3.125vw, 60px)',
           }}
         >
-          굿핏(Good Fit): 맞춤형 솔루션
+          {ADULT_CARE_GOOD_FIT.title}
         </MotionBox>
 
         <MotionBox
@@ -111,24 +112,19 @@ export default function AdultCareGoodFit() {
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
           sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(20px, 1.875vw, 36px)' }}
         >
-          &quot;나와는 다른 아이, 어떻게 대해야 하죠?&quot;
+          {ADULT_CARE_GOOD_FIT.subtitle}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6 }}
+          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
         >
-          &apos;굿핏&apos;은 우리 가족 기질 조합에 꼭 맞는 루틴을 제안합니다
-          <br />
-          가족의 조화는 &apos;하루 한 걸음&apos;의 실천과 노력으로 완성됩니다
-          <br />
-          데이터 분석을 통한 데일리 활동, 대화법, 대응 전략을 제시해
-          <br />
-          갈등은 줄이고, 연결은 더 깊어지는 일상을 함께합니다
+          {ADULT_CARE_GOOD_FIT.description}
         </MotionBox>
       </MotionBox>
     </Box>
   );
-}
+};
+export default AdultCareGoodFit;

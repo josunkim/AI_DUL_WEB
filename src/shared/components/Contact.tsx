@@ -1,18 +1,21 @@
 'use client';
 
 import KakaoMap from '@/shared/components/KakaoMap';
-import { Box, Container, Stack, Typography } from '@mui/material';
+import { Box, Stack, SxProps, Typography } from '@mui/material';
+import { CONTACT } from '../Constant';
 
 export const Contact = () => {
+  const titleStyle: SxProps = { fontSize: { xs: '1.5rem', md: '1.8rem', xl: '2rem' }, fontWeight: 'bold' };
+  const descriptionStyle: SxProps = { whiteSpace: 'pre-line', fontSize: { xs: '1rem', md: '1.25rem' } };
   return (
-    <Container
-      component='section'
+    <Box
       sx={{
         display: 'flex',
         width: '100%',
+        px: { xs: 4, md: 8 },
         minHeight: 'full',
         flexDirection: { xs: 'column', md: 'row' },
-        justifyContent: 'space-between',
+
         gap: { xs: 5, md: 10 },
         pt: 5,
       }}
@@ -23,36 +26,32 @@ export const Contact = () => {
       </Box>
 
       {/* 정보 영역 */}
-      <Stack width={'100%'} justifyContent={'space-between'}>
-        <Typography variant='h2' sx={{ fontSize: { xs: '2.5rem', md: '3.5rem', xl: '4rem' }, fontWeight: 'bold' }}>
-          Contact
+      <Stack width={'60%'} justifyContent={'space-between'}>
+        <Typography variant='h2' sx={{ fontSize: { xs: '2rem', md: '3rem', xl: '3.5rem' }, fontWeight: 'bold', mb: 3 }}>
+          {CONTACT.title}
         </Typography>
 
         <Stack spacing={2}>
-          <Typography variant='h3' sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, fontWeight: 'bold' }}>
-            주소
+          <Typography variant='h3' sx={titleStyle}>
+            {CONTACT.address.title}
           </Typography>
-          <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>
-            서울특별시 서대문구 이화여대길 52,
-            <br />
-            이화 스타트업 오픈 스페이스 (03760)
-          </Typography>
+          <Typography sx={descriptionStyle}>{CONTACT.address.description}</Typography>
         </Stack>
 
         <Stack spacing={2}>
-          <Typography variant='h3' sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, fontWeight: 'bold' }}>
-            E-mail
+          <Typography variant='h3' sx={titleStyle}>
+            {CONTACT.email.title}
           </Typography>
-          <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>aidul@ai-dul.com</Typography>
+          <Typography sx={descriptionStyle}>{CONTACT.email.description}</Typography>
         </Stack>
 
         <Stack spacing={2}>
-          <Typography variant='h3' sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, fontWeight: 'bold' }}>
-            Fax
+          <Typography variant='h3' sx={titleStyle}>
+            {CONTACT.fax.title}
           </Typography>
-          <Typography sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>0504-030-0639</Typography>
+          <Typography sx={descriptionStyle}>{CONTACT.fax.description}</Typography>
         </Stack>
       </Stack>
-    </Container>
+    </Box>
   );
 };
