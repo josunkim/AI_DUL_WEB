@@ -7,7 +7,7 @@ import CategoryRouteButton from '@/shared/components/CategoryRouteButton';
 import { Box, Container, Typography } from '@mui/material';
 import { NICHE } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 export const NicheSection = () => {
   // 애니메이션 variants 정의
   const centerImgVariants = {

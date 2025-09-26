@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { CARE_CHILD } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
@@ -44,12 +44,29 @@ const MainIntro = () => {
             sx={{
               fontWeight: 'bold',
               mb: { xs: 2, md: 2.5, xl: 3 },
-              fontSize: 'clamp(1.5rem, 4.1667vw, 5rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 5rem)',
               lineHeight: 1.2,
+              whiteSpace: 'pre-line',
             }}
           >
             {CARE_CHILD.title.split('').map((char, i) => (
-              <motion.span key={i} custom={i} variants={letterVariants} initial='hidden' animate='visible' style={{ display: 'inline-block' }}>
+              <motion.span key={i} custom={i} variants={letterVariants} initial='hidden' animate='visible' style={{ whiteSpace: 'pre-line', display: 'inline-block' }}>
+                {char === ' ' ? '\u00A0' : char}
+              </motion.span>
+            ))}
+          </Typography>
+          <Typography
+            component='h2'
+            sx={{
+              fontWeight: 'bold',
+              mb: { xs: 2, md: 2.5, xl: 3 },
+              fontSize: 'clamp(1.5rem, 4vw, 3rem)',
+              lineHeight: 1.2,
+              whiteSpace: 'pre-line',
+            }}
+          >
+            {CARE_CHILD.subTitle.split('').map((char, i) => (
+              <motion.span key={i} custom={i} variants={letterVariants} initial='hidden' animate='visible' style={{ whiteSpace: 'pre-line', display: 'inline-block' }}>
                 {char === ' ' ? '\u00A0' : char}
               </motion.span>
             ))}

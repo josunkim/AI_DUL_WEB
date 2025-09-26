@@ -7,8 +7,9 @@ import calendarImg from '@/assets/img/calendarImg.png';
 import DULImg from '@/assets/img/DULImg.png';
 import akaiveImg from '@/assets/img/akaiveImg.png';
 import Image from 'next/image';
+import { ADULT_CARE_PARENTS } from '../core/text';
 
-export default function AdultCareParentsIntro() {
+const AdultCareParentsIntro = () => {
   const greenBoxRef = useRef(null);
   const textRef = useRef(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -83,7 +84,7 @@ export default function AdultCareParentsIntro() {
             mb: 4,
           }}
         >
-          Parent&apos;s AI.DUL
+          {ADULT_CARE_PARENTS.title}
         </Typography>
 
         <Typography
@@ -92,19 +93,13 @@ export default function AdultCareParentsIntro() {
             // alignContent: 'start',
             fontSize: 'clamp(1rem, 1.5625vw, 30px)',
             lineHeight: 1.6,
+            whiteSpace: 'pre-line',
           }}
         >
-          전문 검사를 기반으로 분석된
-          <br />
-          가족 개개인의 특성을 통해
-          <br />
-          잠재된 문제를 예측하고
-          <br />
-          맞춤형 데일리 양육 코칭과
-          <br />
-          24시간 전문 AI 상담을 제공합니다
+          {ADULT_CARE_PARENTS.description}
         </Typography>
       </motion.div>
     </Box>
   );
-}
+};
+export default AdultCareParentsIntro;

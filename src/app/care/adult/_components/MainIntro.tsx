@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Box, Typography } from '@mui/material';
-
-const title = '함께 성장하는 부모 솔루션';
+import { ADULT_MAIN } from '../core/text';
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -17,7 +16,7 @@ const letterVariants = {
   }),
 };
 
-export default function MainIntro() {
+const MainIntro = () => {
   return (
     <Box
       component='section'
@@ -42,7 +41,7 @@ export default function MainIntro() {
             textAlign: 'center',
           }}
         >
-          {title.split('').map((char, i) => (
+          {ADULT_MAIN.title.split('').map((char, i) => (
             <motion.span key={i} custom={i} variants={letterVariants} initial='hidden' animate='visible' style={{ display: 'inline-block' }}>
               {char === ' ' ? '\u00A0' : char}
             </motion.span>
@@ -59,11 +58,12 @@ export default function MainIntro() {
             mt: 4,
           }}
         >
-          데이터 기반의 기질 조합과 가족 간 상호작용을 과학적으로 분석한
+          {ADULT_MAIN.description1}
           <br />
-          자녀 성장에 최적화된 가족 전담 AI 상담 및 관리 서비스
+          {ADULT_MAIN.description2}
         </Typography>
       </motion.div>
     </Box>
   );
-}
+};
+export default MainIntro;

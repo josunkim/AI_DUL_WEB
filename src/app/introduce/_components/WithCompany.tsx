@@ -5,6 +5,7 @@ import { amber } from '@mui/material/colors';
 import { Stack } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { WITH_COMPANY_TITLE } from '../core/text';
 
 const companies = Array.from({ length: 10 }).map((_, i) => ({
   id: i,
@@ -29,7 +30,7 @@ export const WithCompany = () => {
       }}
     >
       <Typography fontSize={'clamp(0.1rem, 4vw, 3rem)'} align='center' fontWeight='bold'>
-        AI.DUL의 가치를 믿고 함께 합니다
+        {WITH_COMPANY_TITLE}
       </Typography>
 
       <Box

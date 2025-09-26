@@ -1,5 +1,6 @@
 export const CARE_CHILD = {
-  title: '인생의 출발점, 아이들의 가능성을 여는 교육',
+  title: '인생의 출발점',
+  subTitle: ' 아이들의 가능성을 여는 교육',
   description: '아동의 인지, 정서, 행동 성장을 촉진하는 디지털 교육 서비스',
 };
 

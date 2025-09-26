@@ -9,7 +9,7 @@ import calendarImg from '@/assets/img/calendarImg.png';
 import Image from 'next/image';
 import { CARE_CHILDSECTION2 } from '../core/text';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const ChildApp = () => {
   const greenBoxRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);

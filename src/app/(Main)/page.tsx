@@ -11,8 +11,9 @@ import { GenerationCareIntro } from './_components/GenerationCareIntro';
 import SectionWhatWeDo from './_components/SectionWhatWeDo';
 import { NicheSection } from './_components/NicheSection';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function Home() {
   return (

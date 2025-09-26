@@ -6,10 +6,10 @@ import { motion, useInView } from 'framer-motion';
 import { Box, Stack, Typography } from '@mui/material';
 
 import calendarImg from '@/assets/img/calendarImg.png';
+import { ADULT_CARE_CO_PARENTING } from '../core/text';
 
-const MotionBox = motion(Box);
-
-export default function AdultCareCoParenting() {
+const MotionBox = motion.create(Box);
+const AdultCareCoParenting = () => {
   const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -63,7 +63,7 @@ export default function AdultCareCoParenting() {
             lineHeight: 1.05,
           }}
         >
-          Co-Parenting
+          {ADULT_CARE_CO_PARENTING.title}
         </MotionBox>
 
         <MotionBox
@@ -75,26 +75,19 @@ export default function AdultCareCoParenting() {
             fontWeight: 600,
             fontSize: 'clamp(20px, 1.875vw, 36px)',
             lineHeight: 1.3,
+            whiteSpace: 'pre-line',
           }}
         >
-          AI.DUL은 부부가 함께 실천하는
-          <br />
-          공동양육(Co-parenting)을 안내합니다
+          {ADULT_CARE_CO_PARENTING.subtitle}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6 }}
+          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
         >
-          가족 일정과 일상을 공유하고,
-          <br />
-          기질 기반의 맞춤 역할 팁과 전문 양육 정보를 통해
-          <br />
-          일관된 양육과 정서 연결이 이루어지도록
-          <br />
-          설계되어 있습니다
+          {ADULT_CARE_CO_PARENTING.description}
         </MotionBox>
       </MotionBox>
 
@@ -214,4 +207,5 @@ export default function AdultCareCoParenting() {
       </Box>
     </Box>
   );
-}
+};
+export default AdultCareCoParenting;

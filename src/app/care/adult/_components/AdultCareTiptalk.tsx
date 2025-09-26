@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box } from '@mui/material';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 import calendarImg from '@/assets/img/calendarImg.png';
+import { ADULT_CARE_TIPTALK } from '../core/text';
 
-export default function AdultCareTiptalk() {
+const AdultCareTiptalk = () => {
   const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
@@ -54,33 +55,25 @@ export default function AdultCareTiptalk() {
           transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
           sx={{ fontWeight: 'bold', mb: 3, width: '100%', fontSize: 'clamp(1.2rem,3.125vw,60px)' }}
         >
-          팁톡(Tiptalk): 커뮤니티
+          {ADULT_CARE_TIPTALK.title}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(20px, 1.875vw, 36px)' }}
+          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(20px, 1.875vw, 36px)', whiteSpace: 'pre-line' }}
         >
-          &quot;육아정보가 흩어져 있어서 바쁜 날은 그냥 포기해요&quot;
-          <br />
-          &quot;수다방은 많은데 믿을만한 조언이 없어요&quot;
+          {ADULT_CARE_TIPTALK.subtitle}
         </MotionBox>
 
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6 }}
+          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.5, whiteSpace: 'pre-line' }}
         >
-          &apos;팁톡&apos;은 다양한 소통을 하는 공간입니다
-          <br />
-          유사한 문제를 경험하고 관심사를 공유하는 가정을 연결합니다
-          <br />
-          부모 간 육아 팁, 최신 아이템, 다양한 고민을 공유하고,
-          <br />
-          맞춤형으로 검증된 정보를 제공합니다
+          {ADULT_CARE_TIPTALK.description}
         </MotionBox>
       </MotionBox>
 
@@ -127,4 +120,5 @@ export default function AdultCareTiptalk() {
       </MotionBox>
     </Box>
   );
-}
+};
+export default AdultCareTiptalk;

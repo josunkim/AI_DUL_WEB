@@ -2,6 +2,7 @@
 
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import { DESCRIPTION_PARTS, TITLE_PARTS } from '../core/text';
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -16,8 +17,6 @@ const letterVariants = {
 };
 
 export const MainIntro = () => {
-  const titleParts = ['가족의 삶을 연구하는 전문가가 만든 기업, ', 'AI.DUL'];
-
   return (
     <Box
       component='section'
@@ -47,14 +46,14 @@ export const MainIntro = () => {
             fontSize: 'clamp(1.5rem, 4.17vw, 72px)',
           }}
         >
-          {titleParts[0].split('').map((char, i) => (
+          {TITLE_PARTS[0].split('').map((char, i) => (
             <Box key={`part1-${i}`} component={motion.span} custom={i} variants={letterVariants} initial='hidden' animate='visible' sx={{ display: 'inline-block' }}>
               {char === ' ' ? '\u00A0' : char}
             </Box>
           ))}
           <Box
             component={motion.span}
-            custom={titleParts[0].length}
+            custom={TITLE_PARTS[0].length}
             variants={letterVariants}
             initial='hidden'
             animate='visible'
@@ -64,7 +63,7 @@ export const MainIntro = () => {
               fontSize: 'clamp(1.5rem, 4.17vw, 80px)',
             }}
           >
-            {titleParts[1]}
+            {TITLE_PARTS[1]}
           </Box>
         </Typography>
 
@@ -75,9 +74,9 @@ export const MainIntro = () => {
             fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
           }}
         >
-          아동·가족·심리상담 분야의 교수, 전문상담사가 개발자와 함께 만든
+          {DESCRIPTION_PARTS.description1}
           <br />
-          과학 기반의 정서·성장케어 플랫폼입니다
+          {DESCRIPTION_PARTS.description2}
         </Typography>
 
         <Typography
@@ -87,9 +86,9 @@ export const MainIntro = () => {
             fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
           }}
         >
-          연구로 검증된 이론, 데이터, 심리측정 기반 알고리즘을 통해
+          {DESCRIPTION_PARTS.description3}
           <br />
-          가족의 효과적인 변화에 필요한 솔루션만을 담았습니다
+          {DESCRIPTION_PARTS.description4}
         </Typography>
 
         <Typography
@@ -99,7 +98,7 @@ export const MainIntro = () => {
             fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
           }}
         >
-          성장은 하루로 끝나지 않습니다.
+          {DESCRIPTION_PARTS.description5}
         </Typography>
 
         <Typography
@@ -109,11 +108,11 @@ export const MainIntro = () => {
           }}
         >
           <Box component='span' sx={{ fontWeight: 'bold' }}>
-            AI.DUL
+            {DESCRIPTION_PARTS.company}
           </Box>
-          은 한 사람의 생애를, 한 가족의 시간을
+          {DESCRIPTION_PARTS.description6}
           <br />
-          기술로 기록하고 예측하여 맞춤형 개입을 합니다
+          {DESCRIPTION_PARTS.description7}
         </Typography>
       </Box>
     </Box>
