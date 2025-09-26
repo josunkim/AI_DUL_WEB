@@ -1,5 +1,3 @@
-import { title } from 'process';
-
 export const PATH = {
   HOME: '/',
   CARE_CHILD: '/care/child',
