@@ -9,6 +9,8 @@ import akaiveImg from '@/assets/img/akaiveImg.png';
 import Image from 'next/image';
 import { ADULT_CARE_PARENTS } from '../core/text';
 
+const MotionBox = motion.create(Box);
+
 const AdultCareParentsIntro = () => {
   const greenBoxRef = useRef(null);
   const textRef = useRef(null);
@@ -33,14 +35,14 @@ const AdultCareParentsIntro = () => {
         justifyContent: 'center',
         height: '100vh',
         width: '100%',
-        bgcolor: '#ffffff',
+        bgcolor: 'background.paper',
         gap: { xs: 4, md: 6, xl: 8 },
         px: { xs: 2, md: 4, lg: 8 },
         flexDirection: { xs: 'column', lg: 'row' },
       }}
     >
       {/* 이미지 영역 */}
-      <motion.div ref={greenBoxRef} initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
+      <MotionBox ref={greenBoxRef} initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
         <Box
           sx={{
             display: 'flex',
@@ -56,7 +58,7 @@ const AdultCareParentsIntro = () => {
           }}
         >
           {images.map((img, i) => (
-            <motion.div
+            <MotionBox
               key={i}
               initial={{ opacity: 0, y: imageStyles[i].y + 40 }}
               animate={isInView ? { opacity: 1, y: imageStyles[i].y } : { opacity: 0, y: imageStyles[i].y + 40 }}
@@ -68,13 +70,13 @@ const AdultCareParentsIntro = () => {
               }}
             >
               <Image src={img} alt={`Adult's AI.DUL ${i + 1}`} className='rounded-2xl shadow-xl' style={{ borderRadius: '1rem', objectFit: 'cover' }} height={600} />
-            </motion.div>
+            </MotionBox>
           ))}
         </Box>
-      </motion.div>
+      </MotionBox>
 
       {/* 텍스트 영역 */}
-      <motion.div ref={textRef} initial={{ opacity: 0, x: 60 }} animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
+      <MotionBox ref={textRef} initial={{ opacity: 0, x: 60 }} animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
         <Typography
           variant='h2'
           fontWeight='bold'
@@ -98,7 +100,7 @@ const AdultCareParentsIntro = () => {
         >
           {ADULT_CARE_PARENTS.description}
         </Typography>
-      </motion.div>
+      </MotionBox>
     </Box>
   );
 };

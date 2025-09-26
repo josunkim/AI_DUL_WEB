@@ -17,7 +17,7 @@ import 'swiper/css/pagination';
 
 export default function Home() {
   return (
-    <Stack spacing={4}>
+    <Stack spacing={0}>
       <Swiper
         direction='horizontal'
         slidesPerView={1}
@@ -26,7 +26,7 @@ export default function Home() {
         speed={1000}
         autoplay={{ delay: 5200, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        style={{ width: '100%', height: 'calc(100vh - 64px)' }}
+        style={{ width: '100%', height: 'calc(100vh - 64px)', marginTop: '64px' }}
       >
         {/* Slide 1 */}
         <SwiperSlide>

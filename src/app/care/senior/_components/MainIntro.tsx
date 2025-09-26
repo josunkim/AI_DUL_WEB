@@ -22,13 +22,13 @@ const MainIntro = () => {
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <Box
           sx={{
-            mt: { xs: 5, md: 10, xl: 20 },
             minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
             gap: { xs: 2, md: 3, xl: 4 },
             textAlign: 'center',
+            bgcolor: 'white',
           }}
         >
           <Typography

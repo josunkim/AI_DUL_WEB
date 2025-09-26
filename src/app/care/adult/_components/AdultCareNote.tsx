@@ -23,6 +23,7 @@ const AdultCareNote = () => {
       justifyContent='center'
       minHeight='100vh'
       width='100%'
+      bgcolor={'background.paper'}
       px={{ xs: 2, md: 8 }}
       py={{ xs: 6, md: 12 }}
       gap={{ xs: 0, md: 4 }}

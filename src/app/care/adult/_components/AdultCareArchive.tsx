@@ -25,7 +25,7 @@ const AdultCareArchive = () => {
         justifyContent: 'center',
         width: '100%',
         minHeight: '100vh',
-        bgcolor: 'white',
+        bgcolor: 'background.paper',
         px: { xs: 2, md: 4 },
         gap: 4,
       }}

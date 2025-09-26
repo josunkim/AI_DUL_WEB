@@ -24,7 +24,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer>
+    <footer style={{ backgroundColor: '#F0F4F8' }}>
       <Stack width={'100%'} py={4}>
         <Contact />
       </Stack>

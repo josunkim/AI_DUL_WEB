@@ -25,6 +25,7 @@ const SeniorCareIntroSection = () => {
         alignItems: 'center',
         width: '100%',
         height: '100vh',
+        bgcolor: 'background.paper',
       }}
     >
       {/* 초록색 박스 */}
@@ -54,7 +55,7 @@ const SeniorCareIntroSection = () => {
             }}
           >
             <MotionBox
-              style={{ position: 'absolute', top: '-80%', left: 0, zIndex: 10, borderRadius: '100%' }}
+              style={{ position: 'absolute', top: '-0%', left: 0, zIndex: 10, borderRadius: '100%' }}
               initial={{ opacity: 0, y: 64 }}
               animate={isInView ? { opacity: 1, y: 24 } : { opacity: 0, y: 64 }}
               transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
@@ -63,7 +64,7 @@ const SeniorCareIntroSection = () => {
             </MotionBox>
 
             <MotionBox
-              style={{ position: 'absolute', top: '-80%', right: 0, zIndex: 10 }}
+              style={{ position: 'absolute', top: '-0%', right: 0, zIndex: 10 }}
               initial={{ opacity: 0, y: 64 }}
               animate={isInView ? { opacity: 1, y: 24 } : { opacity: 0, y: 64 }}
               transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
@@ -74,7 +75,7 @@ const SeniorCareIntroSection = () => {
             <MotionBox
               style={{
                 position: 'absolute',
-                bottom: '-80%',
+                bottom: '-100',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 zIndex: 10,

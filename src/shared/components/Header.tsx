@@ -42,8 +42,8 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar position='sticky' sx={{ bgcolor: 'background.paper', color: 'text.primary', opacity: 0.7 }} elevation={1}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <AppBar position='fixed' sx={{ bgcolor: 'background.paper', color: 'text.primary', opacity: 0.7 }} elevation={1}>
+        <Toolbar sx={{ height: 64, justifyContent: 'space-between' }}>
           {/* 로고 */}
           <Link href={PATH.HOME} passHref style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
             <Image src='/assets/img/logoImg.png' alt='Logo' width={40} height={40} />
