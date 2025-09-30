@@ -46,13 +46,29 @@ const SectionWhatWeDo = () => {
     <Box
       ref={sectionRef}
       sx={{
+        position: 'relative',
+        display: 'flex',
         minHeight: { xs: 650, md: '100vh' },
         bgcolor: 'background.paper',
-        display: 'flex',
         flexDirection: 'column',
         gap: { xs: 4, md: 8 },
       }}
     >
+      <video
+        src={'/assets/video/graph.mp4'}
+        autoPlay
+        muted
+        loop
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover', // 배경처럼 꽉 채움
+          zIndex: 0,
+        }}
+      />
       {/* 제목 */}
       <MotionBox
         initial={{ opacity: 0, x: 50 }}
@@ -105,9 +121,9 @@ const SectionWhatWeDo = () => {
                   transition={{ duration: 0.5, type: 'spring' }}
                   sx={{
                     position: 'absolute',
-                    bgcolor: 'white',
+                    bgcolor: '#333',
                     minHeight: { xs: 150, md: 200, xl: 250 },
-                    maxWidth: { xs: 300, md: 400, xl: 500 },
+                    maxWidth: { xs: 200, md: 300, xl: 400 },
                     p: { xs: 3, md: 6, xl: 8 },
                     textAlign: 'center',
                     borderRadius: 2,
@@ -119,6 +135,7 @@ const SectionWhatWeDo = () => {
                     variant='h3'
                     sx={{
                       mb: { xs: 1, md: 2 },
+                      color: 'white',
                       fontSize: { xs: '1.5rem', md: '2rem', xl: '3rem' },
                       fontWeight: 'bold',
                     }}
@@ -128,6 +145,7 @@ const SectionWhatWeDo = () => {
                   <Typography
                     sx={{
                       whiteSpace: 'pre-line',
+                      color: 'white',
                       fontSize: { xs: '1rem', md: '1.25rem', xl: '1.75rem' },
                     }}
                   >
@@ -152,7 +170,6 @@ const SectionWhatWeDo = () => {
               gap: { xs: 2, md: 4 },
               mx: 'auto',
               mt: { xs: 4, md: 0 },
-              maxWidth: { xs: 320, md: 900, xl: 1400 },
               zIndex: 3,
             }}
           >
@@ -164,13 +181,14 @@ const SectionWhatWeDo = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
                 sx={{
-                  bgcolor: 'white',
+                  bgcolor: '#333',
                   textAlign: 'center',
                   p: { xs: 3, md: 4 },
                   borderRadius: 2,
                   boxShadow: 2,
                   flex: '1 1 250px', // 최소 250px, 남은 공간 균등 배분
                   maxWidth: '300px', // 최대 크기 제한
+                  color: 'white',
                 }}
               >
                 <Typography

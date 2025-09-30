@@ -16,7 +16,7 @@ export const metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/assets/Img/logoImg.png',
+    icon: '/assets/Img/logoImg.svg',
   },
   metadataBase: new URL('https://aidul.com'),
   manifest: '/manifest.json',
