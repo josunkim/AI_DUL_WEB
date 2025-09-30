@@ -16,6 +16,7 @@ export const MainSlogan = () => {
     <Box
       sx={{
         display: 'flex',
+        position: 'relative',
         flexDirection: 'column',
         mb: { xs: 5, md: 0 },
         width: '100%',
@@ -23,38 +24,45 @@ export const MainSlogan = () => {
         alignItems: 'center',
         justifyContent: 'center',
         gap: { xs: 1.5, md: 6 },
-        bgcolor: 'white',
         textAlign: 'center',
         py: { xs: 4, md: 10 },
       }}
+      color={'white'}
     >
+      <video
+        src={'/assets/video/lifeSection.mp4'}
+        autoPlay
+        muted
+        loop
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1,
+        }}
+      />
       {/* 메인 슬로건 */}
       <MotionBox initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true, amount: 0.7 }}>
         <Typography
           component='h2'
           sx={{
             width: '100%',
-            maxWidth: { xs: 320, md: 800, xl: 1300 },
             fontWeight: 'bold',
             textAlign: { xs: 'center', sm: 'left' },
-            fontSize: {
-              xs: 'clamp(1.25rem,4vw,4rem)',
-              md: '3rem',
-            },
-            lineHeight: {
-              xs: '2rem',
-              md: '4rem',
-              xl: '7rem',
-            },
-            mx: 'auto',
+            fontSize: 'clamp(1.25rem,4vw,4rem)',
             mt: { xl: 6 },
           }}
         >
           <Typography
             component='p'
             sx={{
+              width: '100%',
               fontSize: 'clamp(1.25rem,4vw,4rem)',
               textAlign: 'start',
+              whiteSpace: 'none',
             }}
           >
             {SLOGAN.title}
@@ -66,7 +74,7 @@ export const MainSlogan = () => {
               textAlign: 'end',
             }}
           >
-            <Box component='span' sx={{ fontSize: [30, 40, 80], fontWeight: 800 }}>
+            <Box component='span' sx={{ fontSize: { xs: 30, md: 60, xl: 80 }, fontWeight: 800 }}>
               {SLOGAN.middle}
             </Box>
             {SLOGAN.mainTitle}

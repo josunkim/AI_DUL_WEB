@@ -60,7 +60,7 @@ const AdultCareAgentAi = () => {
             fontSize: 'clamp(1.2rem, 3.125vw, 60px)',
           }}
         >
-          들(Dul): 상담 에이전트 AI
+          {ADULT_CARE_AGENT_AI.title}
         </MotionBox>
 
         <MotionBox
