@@ -38,8 +38,8 @@ export const GenerationButton = ({ image, text, url }: GenerationButtonProps) =>
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '3.5rem',
-          p: 2,
+          gap: 'clamp(0.5rem,4vw,3rem)',
+          p: { xs: 1, md: 2 },
           transition: 'transform 0.3s',
           '&:hover': { transform: 'scale(1.1)' },
           cursor: 'pointer',
@@ -47,14 +47,14 @@ export const GenerationButton = ({ image, text, url }: GenerationButtonProps) =>
       >
         <Box
           sx={{
-            width: { xs: 350, md: 250, lg: 350 }, // xs: 200px, md: 300px, lg+: 400px
-            height: { xs: 250, md: 180, lg: 250 }, // xs: 140px, md: 220px, lg+: 210px
+            width: { xs: 80, sm: 180, lg: 350 }, // xs: 200px, md: 300px, lg+: 400px
+            height: { xs: 60, sm: 135, lg: 250 }, // xs: 140px, md: 220px, lg+: 210px
             position: 'relative',
           }}
         >
           <Image src={image} alt={text} fill style={{ objectFit: 'cover' }} />
         </Box>
-        <Typography fontWeight='bold' sx={{ fontSize: '40px' }}>
+        <Typography fontWeight='bold' sx={{ fontSize: 'clamp(1rem,2vw,2rem )' }}>
           {text}
         </Typography>
       </ButtonBase>

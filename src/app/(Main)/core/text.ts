@@ -12,7 +12,7 @@ export const SECTION2 = {
 export const STEP = [
   { title: '휴먼지능', desc: '발달-상담-임상심리 전문가' },
   { title: '멀티 모달 DATA', desc: '검사-Text-음성-영상' },
-  { title: '전문연구 DATA', desc: '사회과학 분야 1억 2천만 건 이상' },
+  { title: '전문연구 DATA', desc: '사회과학 분야\n 1억 2천만 건 이상' },
   { title: 'AI / AX', desc: '학습-예측-전문상담 에이전트' },
 ];
 

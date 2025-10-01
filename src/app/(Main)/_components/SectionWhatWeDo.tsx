@@ -48,10 +48,9 @@ const SectionWhatWeDo = () => {
       sx={{
         position: 'relative',
         display: 'flex',
-        minHeight: { xs: 650, md: '100vh' },
+        height: '100vh',
         bgcolor: 'background.paper',
         flexDirection: 'column',
-        gap: { xs: 4, md: 8 },
       }}
     >
       <video
@@ -77,10 +76,11 @@ const SectionWhatWeDo = () => {
         viewport={{ once: true, amount: 0.5 }}
         sx={{
           mt: { xs: 2, md: 6 },
+          color: 'white',
           textAlign: 'center',
           fontWeight: 'bold',
-          fontSize: 'clamp(1.25rem,4vw,4rem)',
-          lineHeight: 'clamp(2em,4vw,2.8em)',
+          fontSize: 'clamp(0.8rem,4vw,4rem)',
+          zIndex: 1,
         }}
       >
         {SECTION3.title}
@@ -122,9 +122,9 @@ const SectionWhatWeDo = () => {
                   sx={{
                     position: 'absolute',
                     bgcolor: '#333',
-                    minHeight: { xs: 150, md: 200, xl: 250 },
-                    maxWidth: { xs: 200, md: 300, xl: 400 },
-                    p: { xs: 3, md: 6, xl: 8 },
+                    flex: '1 1 250px', // 최소 250px, 남은 공간 균등 배분
+                    maxWidth: '300px', // 최대 크기 제한
+                    p: { xs: 3, md: 4 },
                     textAlign: 'center',
                     borderRadius: 2,
                     boxShadow: 3,
@@ -146,7 +146,7 @@ const SectionWhatWeDo = () => {
                     sx={{
                       whiteSpace: 'pre-line',
                       color: 'white',
-                      fontSize: { xs: '1rem', md: '1.25rem', xl: '1.75rem' },
+                      fontSize: { xs: '1rem', md: '2vw', xl: '1.75rem' },
                     }}
                   >
                     {f.desc}
@@ -195,7 +195,7 @@ const SectionWhatWeDo = () => {
                   variant='h4'
                   sx={{
                     mb: { xs: 1, md: 2 },
-                    fontSize: { xs: '1.5rem', md: '2rem', xl: '3rem' },
+                    fontSize: 'clamp(1rem ,4vw , 2rem)',
                     fontWeight: 'bold',
                   }}
                 >
@@ -203,7 +203,7 @@ const SectionWhatWeDo = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: { xs: '0.9rem', md: '1.1rem', xl: '1.5rem' },
+                    fontSize: 'clamp(1.2rem ,1vw , 1.5rem)',
                     whiteSpace: 'pre-line',
                   }}
                 >

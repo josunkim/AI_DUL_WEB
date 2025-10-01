@@ -38,22 +38,19 @@ export const NicheSection = () => {
         width: '100%',
         minHeight: '100vh',
         alignItems: 'center',
-        justifyContent: { xs: 'center', md: 'start' },
+        justifyContent: 'space-around',
         bgcolor: 'white',
       }}
     >
       {/* 왼쪽 텍스트 */}
       <Box
         sx={{
-          flex: { md: '0 0 50%' },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: { xs: 2, md: 8, xl: 10 },
-          mb: { xl: 8 },
         }}
       >
-        <MotionBox variants={leftTitleVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+        <MotionBox variants={leftTitleVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 0.3 }}>
           <Typography
             component='div'
             sx={{
@@ -74,9 +71,9 @@ export const NicheSection = () => {
           </Typography>
         </MotionBox>
 
-        <MotionBox variants={leftTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
+        <MotionBox variants={leftTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 0.3 }}>
           <Box textAlign='center'>
-            <Typography fontSize={{ xs: '1rem', md: '1.1rem', xl: '1.25rem' }}>
+            <Typography fontSize={'clamp(0.7rem,1.5vw ,2rem)'}>
               {NICHE.description1}
               <br />
               {NICHE.description2}
@@ -94,23 +91,23 @@ export const NicheSection = () => {
           width: { xs: '100%', md: '60vw' },
           maxWidth: { xs: '20rem', md: '30rem', xl: '40rem' },
           aspectRatio: '1 / 1',
-          overflow: 'visible', // 원과 버튼 잘림 방지
-          mt: { xs: 15, md: 0 },
+          overflow: 'visible',
         }}
       >
         {/* 배경 원 */}
         <motion.svg
           width='100%'
           height='100%'
-          viewBox='0 0 500 500'
+          viewBox='0 0 100 100'
           style={{ position: 'absolute', top: 0, left: 0 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.5 }}
+          preserveAspectRatio='xMidYMid meet'
         >
-          <circle cx='250' cy='250' r='230' fill='#133f3c' />
-          <circle cx='250' cy='250' r='180' fill='#fff' />
+          <circle cx='50' cy='50' r='48' fill='#133f3c' />
+          <circle cx='50' cy='50' r='38' fill='#fff' />
         </motion.svg>
 
         {/* 중앙 이미지 + 텍스트 */}
@@ -126,14 +123,22 @@ export const NicheSection = () => {
             alignItems: 'center',
           }}
         >
-          <MotionBox variants={centerImgVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
-            <Box sx={{ width: { xs: '5rem', md: '8rem', xl: '12rem' }, height: { xs: '5rem', md: '8rem', xl: '12rem' } }}>
-              <Image src={catchingPhoneImg} alt='중앙 이미지' style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <MotionBox variants={centerImgVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 0.3 }}>
+            <Box sx={{ position: 'relative', width: { xs: '5rem', md: '8rem', xl: '12rem' }, height: { xs: '5rem', md: '8rem', xl: '12rem' } }}>
+              <Image src={catchingPhoneImg} alt='중앙 이미지' fill style={{ objectFit: 'contain' }} />
             </Box>
           </MotionBox>
 
-          <MotionBox variants={centerTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 1 }}>
-            <Typography textAlign='center' sx={{ mt: 1, fontSize: { xs: '0.75rem', md: '1rem', xl: '1.75rem' }, fontWeight: 'bold', color: '#133f3c' }}>
+          <MotionBox variants={centerTextVariants} initial='hidden' whileInView='visible' viewport={{ once: true, amount: 0.3 }}>
+            <Typography
+              textAlign='center'
+              sx={{
+                mt: 1,
+                fontSize: { xs: '0.75rem', md: '1rem', xl: '1.75rem' },
+                fontWeight: 'bold',
+                color: '#133f3c',
+              }}
+            >
               <Box component='span' sx={{ fontSize: { xs: '1rem', md: '1.25rem', xl: '1.75rem' }, fontWeight: 600 }}>
                 {NICHE.imgtext1}
               </Box>
@@ -147,12 +152,12 @@ export const NicheSection = () => {
         {/* 4방향 버튼 */}
         {(
           [
-            { top: -150, left: -20, type: 'educational', url: '/educational', textPosition: 'top' },
-            { top: -150, right: -20, type: 'community', url: '/community', textPosition: 'top' },
-            { bottom: -50, left: -20, type: 'medical', url: '/medical' },
-            { bottom: -50, right: -20, type: 'professional', url: '/professional' },
+            { top: '-20%', left: 0, type: 'educational', url: '/educational', textPosition: 'top' },
+            { top: '-20%', right: 0, type: 'community', url: '/community', textPosition: 'top' },
+            { bottom: '10%', left: 0, type: 'medical', url: '/medical' },
+            { bottom: '10%', right: 0, type: 'professional', url: '/professional' },
           ] as {
-            top?: number;
+            top?: string;
             left?: number;
             bottom?: number;
             right?: number;
@@ -165,9 +170,9 @@ export const NicheSection = () => {
             key={idx}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{
+            sx={{
               position: 'absolute',
               top: btn.top,
               left: btn.left,

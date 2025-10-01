@@ -18,14 +18,12 @@ export const MainSlogan = () => {
         display: 'flex',
         position: 'relative',
         flexDirection: 'column',
-        mb: { xs: 5, md: 0 },
         width: '100%',
-        minHeight: { xs: 500, md: '100vh' },
+        height: '100vh',
         alignItems: 'center',
         justifyContent: 'center',
         gap: { xs: 1.5, md: 6 },
         textAlign: 'center',
-        py: { xs: 4, md: 10 },
       }}
       color={'white'}
     >
@@ -35,12 +33,12 @@ export const MainSlogan = () => {
         muted
         loop
         style={{
+          width: '100%',
+          height: '100%',
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
+          objectFit: 'fill',
           zIndex: -1,
         }}
       />
@@ -52,7 +50,7 @@ export const MainSlogan = () => {
             width: '100%',
             fontWeight: 'bold',
             textAlign: { xs: 'center', sm: 'left' },
-            fontSize: 'clamp(1.25rem,4vw,4rem)',
+            fontSize: 'clamp(1rem,4vw,4rem)',
             mt: { xl: 6 },
           }}
         >
@@ -60,7 +58,7 @@ export const MainSlogan = () => {
             component='p'
             sx={{
               width: '100%',
-              fontSize: 'clamp(1.25rem,4vw,4rem)',
+              fontSize: 'clamp(1rem,4vw,4rem)',
               textAlign: 'start',
               whiteSpace: 'none',
             }}
@@ -70,11 +68,11 @@ export const MainSlogan = () => {
           <Typography
             component='p'
             sx={{
-              fontSize: 'clamp(1.25rem,4vw,4rem)',
+              fontSize: 'clamp(1rem,4vw,4rem)',
               textAlign: 'end',
             }}
           >
-            <Box component='span' sx={{ fontSize: { xs: 30, md: 60, xl: 80 }, fontWeight: 800 }}>
+            <Box component='span' sx={{ fontSize: { xs: '2.5rem', md: '4rem', xl: '6rem' }, fontWeight: 800 }}>
               {SLOGAN.middle}
             </Box>
             {SLOGAN.mainTitle}
@@ -86,7 +84,7 @@ export const MainSlogan = () => {
       <MotionBox initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }} viewport={{ once: true, amount: 0.7 }}>
         <Typography
           sx={{
-            fontSize: { xs: '1rem', md: '1.5rem', xl: '2rem' },
+            fontSize: { xs: '0.69rem', md: '1.5rem', xl: '2rem' },
             lineHeight: { xs: '1.5rem', md: '2.5rem', xl: '4rem' },
             mt: 2,
           }}
@@ -104,7 +102,7 @@ export const MainSlogan = () => {
         ref={spanRef}
         sx={{
           textAlign: 'left',
-          fontSize: { xs: '2rem', md: '4rem', xl: '6rem' },
+          fontSize: { xs: '1.5rem', md: '4rem', xl: '6rem' },
           fontWeight: 'bold',
           mt: 3,
         }}
