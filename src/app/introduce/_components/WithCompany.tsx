@@ -1,15 +1,15 @@
 'use client';
 
-import { Box, Paper, Typography } from '@mui/material';
-import { amber } from '@mui/material/colors';
+import { Box, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { WITH_COMPANY_TITLE } from '../core/text';
+import { WITH_COMPANY_LIST, WITH_COMPANY_TITLE } from '../core/text';
 
-const companies = Array.from({ length: 10 }).map((_, i) => ({
+const companies = WITH_COMPANY_LIST.map((d, i) => ({
   id: i,
-  name: `회사 이름 ${i + 1}`,
+  src: d.src,
+  name: d.name,
 }));
 
 export const WithCompany = () => {
@@ -57,12 +57,12 @@ export const WithCompany = () => {
             },
           }}
         >
-          {repeatedCompanies.map((c, i) => (
+          {repeatedCompanies.map((d, i) => (
             <Stack
               key={i}
               direction='column'
               sx={{
-                bgcolor: amber[100],
+                border: '1px solid #dbdbdb',
                 minWidth: 250,
                 p: 2,
                 mr: 2,
@@ -73,10 +73,7 @@ export const WithCompany = () => {
               spacing={2}
               alignItems='center'
             >
-              <Image src={`/assets/img/logoImg.png`} alt={c.name} width={40} height={40} />
-              <Paper elevation={0} sx={{ bgcolor: 'transparent' }}>
-                {c.name}
-              </Paper>
+              <Image src={d.src} alt={d.name} width={240} height={100} />
             </Stack>
           ))}
         </motion.div>
