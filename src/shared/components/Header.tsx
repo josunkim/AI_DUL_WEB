@@ -19,6 +19,7 @@ import Button from '@mui/material/Button';
 import { HEADER_MENU_ITEMS, MENU_ITEMS, PATH } from '@/shared/Constant';
 import Image from 'next/image';
 import Link from 'next/link';
+import { alpha } from '@mui/system';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -42,7 +43,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar position='fixed' sx={{ bgcolor: 'background.paper', color: 'text.primary', opacity: 0.7 }} elevation={1}>
+      <AppBar position='fixed' sx={(theme) => ({ bgcolor: alpha(theme.palette.background.paper, 0), color: 'text.primary' })} elevation={1}>
         <Toolbar sx={{ height: 64, justifyContent: 'space-between' }}>
           {/* 로고 */}
           <Link href={PATH.HOME} passHref style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
@@ -55,7 +56,7 @@ export default function Header() {
           {/* PC/태블릿 메뉴 */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
             <Link href={PATH.HOME} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Button color='inherit'>Home</Button>
+              <Button>Home</Button>
             </Link>
 
             {/* 서비스 드롭다운 */}
@@ -88,7 +89,7 @@ export default function Header() {
             <List component='nav'>
               {MENU_ITEMS.map((item) => (
                 <ListItem key={item.path} disablePadding>
-                  <Link href={item.path} passHref>
+                  <Link href={item.path} passHref style={{ width: '100%', textDecoration: 'none', color: 'inherit' }}>
                     <ListItemButton onClick={go()}>
                       <ListItemText primary={item.label} />
                     </ListItemButton>

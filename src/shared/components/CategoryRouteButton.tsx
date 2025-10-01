@@ -48,10 +48,12 @@ export default function CategoryRouteButton({ type, url, textPosition = 'bottom'
           p: 0,
           flexDirection: 'column',
           alignItems: 'center',
+          width: '100%',
+          height: '100%',
           minWidth: { xs: '6rem', md: '8rem', xl: '16rem' },
           minHeight: { xs: '6rem', md: '8rem', xl: '16rem' },
           bgcolor: 'transparent',
-          gap: { xs: 2, md: 3 },
+          gap: { xs: 1, md: 1 },
           transition: 'transform 0.3s',
           '&:hover': { transform: 'scale(1.1)' },
           ...sx,
@@ -69,7 +71,7 @@ export default function CategoryRouteButton({ type, url, textPosition = 'bottom'
         }}
       >
         {textPosition === 'top' && (
-          <Typography variant='h6' color='black' fontWeight='bold' sx={{ mb: 1, fontSize: { md: 24, xl: 40 } }}>
+          <Typography variant='h6' color='black' fontWeight='bold' sx={{ mb: 1, fontSize: 'clamp(1rem, 2vw , 2rem)' }}>
             {category.text}
           </Typography>
         )}
@@ -77,15 +79,15 @@ export default function CategoryRouteButton({ type, url, textPosition = 'bottom'
         <Box
           sx={{
             position: 'relative',
-            width: { xs: '6rem', md: '11rem', xl: '13rem' },
-            height: { xs: '6rem', md: '11rem', xl: '13rem' },
+            width: { xs: '6rem', md: '9rem', xl: '14rem' },
+            height: { xs: '6rem', md: '9rem', xl: '14rem' },
           }}
         >
-          <Image src={category.src} alt={category.alt} fill sizes='(max-width:768px) 80vw, 20vw' style={{ objectFit: 'contain' }} />
+          <Image src={category.src} alt={category.alt} fill />
         </Box>
 
         {textPosition === 'bottom' && (
-          <Typography variant='h6' color='black' fontWeight='bold' sx={{ mt: 1, fontSize: { md: 24, xl: 40 } }}>
+          <Typography variant='h6' color='black' fontWeight='bold' sx={{ mt: 1, fontSize: 'clamp(1rem, 2vw , 2rem)' }}>
             {category.text}
           </Typography>
         )}
