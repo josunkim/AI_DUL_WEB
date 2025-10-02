@@ -7,10 +7,10 @@ import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { Box, Button, Typography } from '@mui/material';
 
-import communityImg from '@/assets/img/community_Img.png';
-import educationalImg from '@/assets/img/educational_Img.png';
-import medicalImg from '@/assets/img/medical_Img.png';
-import professionalImg from '@/assets/img/professional_Img.png';
+import communityImg from '/public/assets/img/community_Img.svg';
+import educationalImg from '/public/assets/img/educational_Img.svg';
+import medicalImg from '/public/assets/img/medical_Img.svg';
+import professionalImg from '/public/assets/img/professional_Img.svg';
 
 const CATEGORY_CONFIG = {
   educational: { src: educationalImg, alt: '교육기관', text: '교육기관' },

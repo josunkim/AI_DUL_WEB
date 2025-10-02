@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import catchingPhoneImg from '@/assets/img/catchingPhoneImg.svg';
+import catchingPhoneImg from '/public/assets/img/catchingPhoneImg.svg';
 import { motion } from 'framer-motion';
 import CategoryRouteButton from '@/shared/components/CategoryRouteButton';
 import { Box, Container, Typography } from '@mui/material';

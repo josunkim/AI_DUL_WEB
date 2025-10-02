@@ -44,7 +44,7 @@ export default function Home() {
                 left: 0,
                 zIndex: 0,
               }}
-              src={'/assets/video/여성얼굴aging.mp4'}
+              src={'/assets/video/female_aging.mp4'}
               autoPlay
               loop
               preload='auto'
@@ -60,7 +60,7 @@ export default function Home() {
                 left: 0,
                 zIndex: 0,
               }}
-              src={'/assets/video/남성얼굴aging.mp4'}
+              src={'/assets/video/male_aging.mp4'}
               autoPlay
               loop
               preload='auto'

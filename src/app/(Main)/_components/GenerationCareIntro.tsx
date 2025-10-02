@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import childImg from '@/assets/img/childImg.png';
-import adultImg from '@/assets/img/adultImg.png';
-import seniorImg from '@/assets/img/seniorImg.png';
-import { GenerationButton } from './GenerationButton'; // MUI 변환된 버전 사용
+import childImg from '/public/assets/img/childImg.svg';
+import adultImg from '/public/assets/img/adultImg.svg';
+import seniorImg from '/public/assets/img/seniorImg.svg';
+import { GenerationButton } from './GenerationButton';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
