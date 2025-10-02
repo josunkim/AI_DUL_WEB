@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Button, Modal, Typography } from '@mui/material';
-import { justifyContent, Stack } from '@mui/system';
+import { Stack } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 
 interface KakaoAddressResult {
