@@ -22,7 +22,7 @@ export const WithCompany = () => {
         width: '100%',
         mx: 'auto',
         paddingX: { xs: 4, md: 8, xl: 16 },
-        minHeight: '100vh',
+        minHeight: '60vh',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'column',
