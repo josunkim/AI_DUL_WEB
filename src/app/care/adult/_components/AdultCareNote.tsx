@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import calendarImg from '@/assets/img/calendarImg.png';
+import calendarImg from '/public/assets/img/calendar.svg';
 import { ADULT_CARE_NOTE } from '../core/text';
 
 const MotionBox = motion.create(Box);
@@ -49,7 +49,8 @@ const AdultCareNote = () => {
         <MotionBox
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+          whileHover={{ scale: 1.1, zIndex: 7 }}
+          transition={{ type: 'spring', stiffness: 100, duration: 0.5, delay: 0.1, ease: 'easeOut' }}
           sx={{
             position: 'relative',
             width: 'clamp(120px, 20.8vw, 400px)',
@@ -60,6 +61,7 @@ const AdultCareNote = () => {
           <Image
             src={calendarImg}
             alt='AdultCareNote 이미지'
+            fill
             style={{
               borderRadius: 16,
               objectFit: 'contain',
@@ -104,7 +106,7 @@ const AdultCareNote = () => {
         <Typography
           fontWeight={600}
           mb={3}
-          fontSize='clamp(20px, 1.875vw, 36px)'
+          fontSize='clamp(0.8rem, 1.875vw, 2rem)'
           whiteSpace={'pre-line'}
           component={motion.div}
           initial={{ opacity: 0, y: 20 }}
@@ -115,7 +117,7 @@ const AdultCareNote = () => {
         </Typography>
 
         <Typography
-          fontSize='clamp(1rem, 1.5625vw, 30px)'
+          fontSize='clamp(0.6rem, 1.5vw, 1.8rem)'
           whiteSpace={'pre-line'}
           lineHeight={1.5}
           component={motion.div}

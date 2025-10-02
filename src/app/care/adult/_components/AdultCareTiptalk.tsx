@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 
 const MotionBox = motion.create(Box);
 
-import calendarImg from '@/assets/img/calendarImg.png';
+import Tiptalk from '/public/assets/img/communicate.svg';
 import { ADULT_CARE_TIPTALK } from '../core/text';
 
 const AdultCareTiptalk = () => {
@@ -62,7 +62,7 @@ const AdultCareTiptalk = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(20px, 1.875vw, 36px)', whiteSpace: 'pre-line' }}
+          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(0.8rem, 2vw, 2rem)', whiteSpace: 'pre-line' }}
         >
           {ADULT_CARE_TIPTALK.subtitle}
         </MotionBox>
@@ -71,7 +71,7 @@ const AdultCareTiptalk = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.5, whiteSpace: 'pre-line' }}
+          sx={{ fontSize: 'clamp(0.6rem, 1.4vw, 1.8rem)', lineHeight: 1.5, whiteSpace: 'pre-line' }}
         >
           {ADULT_CARE_TIPTALK.description}
         </MotionBox>
@@ -98,7 +98,8 @@ const AdultCareTiptalk = () => {
         <MotionBox
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+          whileHover={{ scale: 1.1, zIndex: 7 }}
+          transition={{ type: 'spring', stiffness: 100, duration: 0.5, delay: 0.1, ease: 'easeOut' }}
           sx={{
             position: 'relative',
             width: 'clamp(120px, 20.8vw, 400px)',
@@ -107,7 +108,7 @@ const AdultCareTiptalk = () => {
           }}
         >
           <Image
-            src={calendarImg}
+            src={Tiptalk}
             alt='AdultCareTiptalk 이미지'
             fill
             style={{

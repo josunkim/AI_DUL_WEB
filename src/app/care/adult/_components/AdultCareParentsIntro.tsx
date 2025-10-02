@@ -3,96 +3,66 @@
 import { Box, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import calendarImg from '@/assets/img/calendarImg.png';
-import DULImg from '@/assets/img/DULImg.png';
-import akaiveImg from '@/assets/img/akaiveImg.png';
 import Image from 'next/image';
 import { ADULT_CARE_PARENTS } from '../core/text';
 
 const MotionBox = motion.create(Box);
 
 const AdultCareParentsIntro = () => {
-  const greenBoxRef = useRef(null);
-  const textRef = useRef(null);
-  const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
-  const isTextInView = useInView(textRef, { once: true, amount: 0.3 });
-
-  const images = [calendarImg, DULImg, akaiveImg, calendarImg];
-
-  const imageStyles = [
-    { y: 24, z: 10, ml: 0 }, // 1번
-    { y: -24, z: 20, ml: -60 }, // 2번
-    { y: 24, z: 30, ml: -60 }, // 3번
-    { y: -24, z: 40, ml: -60 }, // 4번
-  ];
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   return (
     <Box
+      ref={sectionRef}
       component='section'
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
         width: '100%',
+        height: '100%',
+        minHeight: '100vh',
         bgcolor: 'background.paper',
         gap: { xs: 4, md: 6, xl: 8 },
-        px: { xs: 2, md: 4, lg: 8 },
-        flexDirection: { xs: 'column', lg: 'row' },
+        p: { xs: 2, md: 4, lg: 8 },
+        flexDirection: { xs: 'column-reverse', md: 'row' },
       }}
     >
       {/* 이미지 영역 */}
-      <MotionBox ref={greenBoxRef} initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 400,
-            minWidth: 600,
-            borderRadius: 3,
-            backgroundColor: '#133f3c',
-            overflow: 'visible',
-            pb: 2,
-            position: 'relative',
+      <motion.div style={{ width: '100%', height: '100%' }} initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: 'easeOut' }}>
+        <video
+          style={{
+            width: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
           }}
-        >
-          {images.map((img, i) => (
-            <MotionBox
-              key={i}
-              initial={{ opacity: 0, y: imageStyles[i].y + 40 }}
-              animate={isInView ? { opacity: 1, y: imageStyles[i].y } : { opacity: 0, y: imageStyles[i].y + 40 }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: 'easeOut' }}
-              style={{
-                zIndex: imageStyles[i].z,
-                marginLeft: i !== 0 ? imageStyles[i].ml : 0,
-                position: 'relative',
-              }}
-            >
-              <Image src={img} alt={`Adult's AI.DUL ${i + 1}`} className='rounded-2xl shadow-xl' style={{ borderRadius: '1rem', objectFit: 'cover' }} height={600} />
-            </MotionBox>
-          ))}
-        </Box>
-      </MotionBox>
+          src={'/assets/video/ai_angel.mp4'}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </motion.div>
 
       {/* 텍스트 영역 */}
-      <MotionBox ref={textRef} initial={{ opacity: 0, x: 60 }} animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
+      <motion.div style={{ width: '100%', height: '100%' }} initial={{ opacity: 0, x: 60 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, ease: 'easeOut' }}>
+        <Box>
+          <Image src={'/assets/img/i-angel.svg'} alt='i-angellogo' width={200} height={100} />
+        </Box>
         <Typography
           variant='h2'
           fontWeight='bold'
           sx={{
             textAlign: 'start',
-            fontSize: 'clamp(28px, 3.125vw, 60px)',
+            fontSize: 'clamp(32px, 3.125vw, 60px)',
             mb: 4,
+            whiteSpace: 'pre-line',
           }}
         >
           {ADULT_CARE_PARENTS.title}
         </Typography>
-
         <Typography
-          textAlign='start'
           sx={{
-            // alignContent: 'start',
             fontSize: 'clamp(1rem, 1.5625vw, 30px)',
             lineHeight: 1.6,
             whiteSpace: 'pre-line',
@@ -100,7 +70,7 @@ const AdultCareParentsIntro = () => {
         >
           {ADULT_CARE_PARENTS.description}
         </Typography>
-      </MotionBox>
+      </motion.div>
     </Box>
   );
 };
