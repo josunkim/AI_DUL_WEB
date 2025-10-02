@@ -6,8 +6,6 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { ADULT_CARE_PARENTS } from '../core/text';
 
-const MotionBox = motion.create(Box);
-
 const AdultCareParentsIntro = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });

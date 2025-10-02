@@ -8,13 +8,10 @@ import { Box, Stack, Typography } from '@mui/material';
 import calendarImg from '/public/assets/img/calendar.svg';
 import achaive from '/public/assets/img/achaive.svg';
 import { ADULT_CARE_CO_PARENTING } from '../core/text';
-import { bgcolor } from '@mui/system';
 
 const MotionBox = motion.create(Box);
 const AdultCareCoParenting = () => {
-  const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
   const isTextInView = useInView(textRef, { once: true, amount: 0.3 });
 
   // 이미지 그룹 (샘플: 동일 이미지 사용)
@@ -114,7 +111,7 @@ const AdultCareCoParenting = () => {
             <Image src={achaive} alt='calendar' fill style={{ objectFit: 'contain' }} />
           </MotionBox>
           <MotionBox sx={{ zIndex: 35, position: 'absolute', bottom: '-90%', left: '-25%', width: '100%', height: '100%' }}>
-            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Mother's i-Angel</Typography>
+            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Mother&apos;s i-Angel</Typography>
           </MotionBox>
         </Stack>
         <Stack>
@@ -137,7 +134,7 @@ const AdultCareCoParenting = () => {
             <Image src={achaive} alt='calendar' fill style={{ objectFit: 'contain' }} />
           </MotionBox>
           <MotionBox sx={{ zIndex: 1, position: 'absolute', bottom: '-90%', right: '-20%', width: '100%', height: '100%' }}>
-            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Father's i-Angel</Typography>
+            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Father&apos;s i-Angel</Typography>
           </MotionBox>
         </Stack>
         <MotionBox

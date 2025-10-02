@@ -8,9 +8,7 @@ import { SENIOR_CARE } from '../core/text';
 const MotionBox = motion.create(Box);
 
 const SeniorCareIntroSection = () => {
-  const greenBoxRef = useRef(null);
   const textRef = useRef(null);
-  const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
   const isTextInView = useInView(textRef, { once: true, amount: 0.3 });
 
   return (

@@ -74,5 +74,5 @@ export default function KakaoMap() {
     };
   }, []);
 
-  return <Box ref={mapRef} sx={{ minWidth: 300, maxHeight: 600, minHeight: 400, width: '100%', border: '1px solid #ddd' }} />;
+  return <Box ref={mapRef} sx={{ minWidth: 200, maxHeight: 600, minHeight: 400, width: '100%', border: '1px solid #ddd' }} />;
 }

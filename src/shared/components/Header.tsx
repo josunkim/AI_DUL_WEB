@@ -19,7 +19,8 @@ import Button from '@mui/material/Button';
 import { HEADER_MENU_ITEMS, MENU_ITEMS, PATH } from '@/shared/Constant';
 import Image from 'next/image';
 import Link from 'next/link';
-import { alpha } from '@mui/system';
+import { alpha, SxProps } from '@mui/system';
+import { Theme } from '@mui/material/styles';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -43,37 +44,37 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar position='fixed' sx={(theme) => ({ bgcolor: alpha(theme.palette.background.paper, 0), color: 'text.primary' })} elevation={1}>
+      <AppBar position='fixed' sx={(theme) => ({ bgcolor: alpha(theme.palette.background.paper, 0.5) })} elevation={1}>
         <Toolbar sx={{ height: 64, justifyContent: 'space-between' }}>
           {/* 로고 */}
-          <Link href={PATH.HOME} passHref style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+          <Link href={PATH.HOME} passHref style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit', gap: 4 }}>
             <Image src='/assets/img/logoImg.png' alt='Logo' width={40} height={40} />
-            <Typography variant='h6' fontWeight='bold'>
+            <Typography variant='h6' fontWeight='bold' sx={(theme) => ({ color: theme.palette.Black[100] })}>
               AI.DUL Inc.
             </Typography>
           </Link>
 
           {/* PC/태블릿 메뉴 */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-            <Link href={PATH.HOME} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3, ...ButtonStyle }}>
+            <Link href={PATH.HOME} passHref style={{ textDecoration: 'none' }}>
               <Button>Home</Button>
             </Link>
 
             {/* 서비스 드롭다운 */}
-            <Button color='inherit' onClick={handleMenuOpen} aria-controls={Boolean(anchorEl) ? 'service-menu' : undefined} aria-haspopup='true' aria-expanded={Boolean(anchorEl) ? 'true' : undefined}>
+            <Button onClick={handleMenuOpen} aria-controls={Boolean(anchorEl) ? 'service-menu' : undefined} aria-haspopup='true' aria-expanded={Boolean(anchorEl) ? 'true' : undefined}>
               서비스
             </Button>
             <Menu id='service-menu' anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
               {HEADER_MENU_ITEMS.map((item) => (
-                <Link key={item.path} href={item.path} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <MenuItem onClick={go()}>{item.label}</MenuItem>
+                <Link key={item.path} href={item.path} passHref style={{ textDecoration: 'none' }}>
+                  <MenuItem sx={(theme) => ({ color: theme.palette.Black[100] })} onClick={go()}>
+                    {item.label}
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
-            <Link href={PATH.INTRODUCE} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Button color='inherit' onClick={go()}>
-                회사 소개
-              </Button>
+            <Link href={PATH.INTRODUCE} passHref style={{ textDecoration: 'none' }}>
+              <Button onClick={go()}>회사 소개</Button>
             </Link>
           </Box>
 
@@ -86,12 +87,12 @@ export default function Header() {
         {/* 모바일 Drawer */}
         <Drawer anchor='right' open={mobileOpen} onClose={toggleDrawer} ModalProps={{ keepMounted: true }}>
           <Box sx={{ width: 240 }} role='presentation'>
-            <List component='nav'>
+            <List sx={{ py: 0 }}>
               {MENU_ITEMS.map((item) => (
                 <ListItem key={item.path} disablePadding>
-                  <Link href={item.path} passHref style={{ width: '100%', textDecoration: 'none', color: 'inherit' }}>
+                  <Link href={item.path} passHref style={{ width: '100%', textDecoration: 'none' }}>
                     <ListItemButton onClick={go()}>
-                      <ListItemText primary={item.label} />
+                      <ListItemText sx={(theme) => ({ color: theme.palette.Black[100] })} primary={item.label} />
                     </ListItemButton>
                   </Link>
                 </ListItem>
@@ -103,3 +104,7 @@ export default function Header() {
     </header>
   );
 }
+
+const ButtonStyle: SxProps<Theme> = (theme) => ({
+  color: theme.palette.Black[100],
+});
