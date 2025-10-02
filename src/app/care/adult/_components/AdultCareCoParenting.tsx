@@ -5,21 +5,16 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box, Stack, Typography } from '@mui/material';
 
-import calendarImg from '@/assets/img/calendarImg.png';
+import calendarImg from '/public/assets/img/calendar.svg';
+import achaive from '/public/assets/img/achaive.svg';
 import { ADULT_CARE_CO_PARENTING } from '../core/text';
 
 const MotionBox = motion.create(Box);
 const AdultCareCoParenting = () => {
-  const greenBoxRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(greenBoxRef, { once: true, amount: 0.3 });
   const isTextInView = useInView(textRef, { once: true, amount: 0.3 });
 
   // 이미지 그룹 (샘플: 동일 이미지 사용)
-  const imageGroups = [
-    [calendarImg, calendarImg],
-    [calendarImg, calendarImg],
-  ];
 
   return (
     <Box
@@ -29,11 +24,14 @@ const AdultCareCoParenting = () => {
         alignItems: 'center',
         justifyContent: 'space-around',
         minHeight: '100vh',
+        height: '100%',
         width: '100%',
         bgcolor: '#fff',
         px: { xs: 2, md: 4 },
         py: { xs: 'clamp(40px,5vw,100px)', md: 8 },
         gap: { xs: 6, md: 4 },
+        textAlign: 'center',
+        paddingX: 10,
       }}
     >
       {/* 텍스트 영역 */}
@@ -43,10 +41,8 @@ const AdultCareCoParenting = () => {
         animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         sx={{
-          flex: 1,
-          maxWidth: 800,
-          textAlign: 'center',
           display: 'flex',
+          width: '100%',
           flexDirection: 'column',
           alignItems: 'center',
         }}
@@ -71,6 +67,7 @@ const AdultCareCoParenting = () => {
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
           sx={{
+            width: '100%',
             mb: 'clamp(16px,2.5vw,32px)',
             fontWeight: 600,
             fontSize: 'clamp(20px, 1.875vw, 36px)',
@@ -85,126 +82,77 @@ const AdultCareCoParenting = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
+          sx={{ width: '100%', fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
         >
           {ADULT_CARE_CO_PARENTING.description}
         </MotionBox>
       </MotionBox>
 
       {/* 이미지 영역 */}
-      <Box
-        sx={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          mt: { xs: 'clamp(40px,7vw,450px)', md: 0 },
-          width: '100%',
-        }}
-      >
-        <MotionBox
-          ref={greenBoxRef}
-          initial={{ opacity: 0, y: 60 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          sx={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            py: 'clamp(20px, 3vw, 40px)',
-            borderRadius: '24px',
-            backgroundColor: '#133f3c',
-            overflow: 'visible',
-            // height responsive
-            height: 'clamp(220px, 20.8vw, 400px)',
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 'clamp(20px,4vw,80px)',
-              width: '100%',
-            }}
-          >
-            {imageGroups.map((group, i) => (
-              <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    width: 'clamp(220px, 20.8vw, 400px)',
-                    height: 'clamp(220px, 20.8vw, 400px)',
-                  }}
-                >
-                  {/* 이미지 A */}
-                  <MotionBox
-                    initial={{ opacity: 0, y: i === 0 ? 60 : -60 }}
-                    animate={isInView ? { opacity: 1, y: i === 0 ? 0 : 0 } : { opacity: 0, y: i === 0 ? 60 : -60 }}
-                    transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: 'easeOut' }}
-                    sx={{
-                      position: 'absolute',
-                      zIndex: 10,
-                      ...(i === 0 ? { bottom: '-30px', right: 0 } : { top: '-75px', left: 0 }),
-                    }}
-                  >
-                    <Box sx={{ position: 'relative', width: { xs: 180, md: 'auto' }, height: { xs: 180, md: 'auto' } }}>
-                      <Image src={group[0]} alt={`Group ${i + 1} Img A`} style={{ borderRadius: 16, objectFit: 'cover' }} height={600} />
-                    </Box>
-                  </MotionBox>
 
-                  {/* 이미지 B */}
-                  <MotionBox
-                    initial={{ opacity: 0, y: i === 0 ? -60 : 60 }}
-                    animate={isInView ? { opacity: 1, y: i === 0 ? 0 : 0 } : { opacity: 0, y: i === 0 ? -60 : 60 }}
-                    transition={{ duration: 0.5, delay: 0.15 + i * 0.1, ease: 'easeOut' }}
-                    sx={{
-                      position: 'absolute',
-                      zIndex: 20,
-                      ...(i === 0 ? { top: '-75px', right: '-80px' } : { bottom: '-30px', right: '-80px' }),
-                    }}
-                  >
-                    <Box sx={{ position: 'relative', width: { xs: 180, md: 'auto' }, height: { xs: 180, md: 'auto' } }}>
-                      <Image src={group[1]} alt={`Group ${i + 1} Img B`} style={{ borderRadius: 16, objectFit: 'cover' }} height={600} />
-                    </Box>
-                  </MotionBox>
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </MotionBox>
-
-        {/* 네이밍 */}
-        <Stack
-          direction='row'
-          spacing={{ xs: 8, md: 12 }}
-          sx={{
-            mt: 'clamp(32px,7vw,360px)',
-            width: '100%',
-            justifyContent: 'center',
-            gap: { xs: 8, md: 12 },
-          }}
-        >
+      <Stack direction={'row'} sx={{ position: 'relative', width: '100%', minHeight: '100vh', height: '100%', alignItems: 'center' }}>
+        <Stack>
           <MotionBox
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            sx={{ zIndex: 1, position: 'absolute', bottom: 0, left: '5%', width: '30%', height: '100%', alignItems: 'center' }}
+            whileHover={{ scale: 1.1, zIndex: 7 }}
+            transition={{ type: 'spring', stiffness: 100 }}
           >
-            <Typography sx={{ fontSize: { xs: '0.75rem', sm: '1rem', md: '1.125rem', lg: '1.25rem', xl: '1.875rem' }, fontWeight: 600 }}>Mother&apos;s AI.DUL</Typography>
+            <Image src={calendarImg} alt='calendar' fill style={{ objectFit: 'contain' }} />
           </MotionBox>
-
           <MotionBox
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            sx={{ zIndex: 1, position: 'absolute', bottom: '5%', left: '20%', width: '30%', height: '100%' }}
+            whileHover={{ scale: 1.1, zIndex: 7 }}
+            transition={{ type: 'spring', stiffness: 100 }}
           >
-            <Typography sx={{ fontSize: { xs: '0.75rem', sm: '1rem', md: '1.125rem', lg: '1.25rem', xl: '1.875rem' }, fontWeight: 600 }}>Father&apos;s AI.DUL</Typography>
+            <Image src={achaive} alt='calendar' fill style={{ objectFit: 'contain' }} />
+          </MotionBox>
+          <MotionBox sx={{ zIndex: 35, position: 'absolute', bottom: '-90%', left: '-25%', width: '100%', height: '100%' }}>
+            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Mother&apos;s i-Angel</Typography>
           </MotionBox>
         </Stack>
-      </Box>
+        <Stack>
+          <MotionBox
+            initial={{ opacity: 0, y: 20 }}
+            animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            sx={{ zIndex: 1, position: 'absolute', bottom: 0, right: '20%', width: '30%', height: '100%' }}
+            whileHover={{ scale: 1.1, zIndex: 7 }}
+            transition={{ type: 'spring', stiffness: 100 }}
+          >
+            <Image src={calendarImg} alt='calendar' fill style={{ objectFit: 'contain' }} />
+          </MotionBox>
+          <MotionBox
+            initial={{ opacity: 0, y: 30 }}
+            animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            sx={{ zIndex: 1, position: 'absolute', bottom: '5%', right: '5%', width: '30%', height: '100%' }}
+            whileHover={{ scale: 1.1, zIndex: 7 }}
+            transition={{ type: 'spring', stiffness: 200 }}
+          >
+            <Image src={achaive} alt='calendar' fill style={{ objectFit: 'contain' }} />
+          </MotionBox>
+          <MotionBox sx={{ zIndex: 1, position: 'absolute', bottom: '-90%', right: '-20%', width: '100%', height: '100%' }}>
+            <Typography sx={{ fontSize: 'clamp(1rem,3vw,1.5rem)', fontWeight: 'Bold' }}>Father&apos;s i-Angel</Typography>
+          </MotionBox>
+        </Stack>
+        <MotionBox
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          width='100%'
+          height='40%'
+          position='absolute'
+          sx={{
+            zIndex: 0,
+            top: '30%',
+            left: 0,
+            borderRadius: 6,
+            bgcolor: '#133f3c',
+          }}
+        />
+      </Stack>
     </Box>
   );
 };

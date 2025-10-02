@@ -25,13 +25,13 @@ export const Section1Text = () => {
         xl: { maxWidth: '64rem' }, // xl:max-w-5xl
       }}
     >
-      <Box maxWidth='70%' textAlign='center'>
+      <Box maxWidth={{ xs: '100%', md: '70%' }} textAlign='center'>
         {/* 헤드라인 */}
         <Typography
           component='h2'
           sx={{
             pt: { xs: 10, md: 16, xl: 20 },
-            fontSize: 'clamp(2rem, 6vw, 5rem)',
+            fontSize: 'clamp(1.5rem, 6vw, 5rem)',
             fontWeight: 800,
           }}
         >
@@ -43,7 +43,7 @@ export const Section1Text = () => {
         <Typography
           sx={{
             pb: { xs: 6, md: 8, xl: 10 },
-            fontSize: 'clamp(1.25rem, 4vw, 3.5rem)',
+            fontSize: 'clamp(1rem, 4vw, 3.5rem)',
             fontWeight: 600,
           }}
         >

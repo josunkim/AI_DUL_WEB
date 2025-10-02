@@ -21,7 +21,7 @@ export const MainIntro = () => {
     <Box
       component='section'
       sx={{
-        height: '100vh',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -72,10 +72,20 @@ export const MainIntro = () => {
             mb: 4,
             lineHeight: { xs: 1.6, md: 2 },
             fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
+            whiteSpace: 'pre-line',
           }}
         >
           {DESCRIPTION_PARTS.description1}
-          <br />
+        </Typography>
+
+        <Typography
+          sx={{
+            mb: 4,
+            lineHeight: { xs: 1.6, md: 2 },
+            fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
+            whiteSpace: 'pre-line',
+          }}
+        >
           {DESCRIPTION_PARTS.description2}
         </Typography>
 
@@ -84,35 +94,10 @@ export const MainIntro = () => {
             mb: 4,
             lineHeight: { xs: 1.6, md: 2 },
             fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
+            whiteSpace: 'pre-line',
           }}
         >
           {DESCRIPTION_PARTS.description3}
-          <br />
-          {DESCRIPTION_PARTS.description4}
-        </Typography>
-
-        <Typography
-          sx={{
-            mb: 4,
-            lineHeight: { xs: 1.6, md: 2 },
-            fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
-          }}
-        >
-          {DESCRIPTION_PARTS.description5}
-        </Typography>
-
-        <Typography
-          sx={{
-            lineHeight: { xs: 1.6, md: 2 },
-            fontSize: 'clamp(0.7rem, 2.083vw, 2.5rem)',
-          }}
-        >
-          <Box component='span' sx={{ fontWeight: 'bold' }}>
-            {DESCRIPTION_PARTS.company}
-          </Box>
-          {DESCRIPTION_PARTS.description6}
-          <br />
-          {DESCRIPTION_PARTS.description7}
         </Typography>
       </Box>
     </Box>

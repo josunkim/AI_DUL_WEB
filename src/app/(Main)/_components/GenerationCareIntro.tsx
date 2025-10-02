@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import childImg from '@/assets/img/childImg.png';
-import adultImg from '@/assets/img/adultImg.png';
-import seniorImg from '@/assets/img/seniorImg.png';
-import { GenerationButton } from './GenerationButton'; // MUI 변환된 버전 사용
+import childImg from '/public/assets/img/childImg.svg';
+import adultImg from '/public/assets/img/adultImg.svg';
+import seniorImg from '/public/assets/img/seniorImg.svg';
+import { GenerationButton } from './GenerationButton';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -24,13 +24,13 @@ export const GenerationCareIntro = () => {
     <Box
       component='section'
       sx={{
-        minHeight: { xs: 500, md: 700, xl: '100vh' },
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         gap: { xs: '2.5rem', md: '6rem', xl: '10rem' },
-        p: { xs: 4, md: 10 },
+
         bgcolor: 'background.paper',
       }}
     >
@@ -41,7 +41,7 @@ export const GenerationCareIntro = () => {
           fontWeight='bold'
           textAlign='center'
           sx={{
-            fontSize: { xs: 'clamp(1.25rem,4vw,4rem)' },
+            fontSize: { xs: 'clamp(0.7rem,4vw,4rem)' },
           }}
         >
           {GENERATION.title}
@@ -49,7 +49,7 @@ export const GenerationCareIntro = () => {
             component='span'
             sx={{
               fontWeight: 800,
-              fontSize: { xs: 'clamp(1.3rem,4.1667vw,80px)' },
+              fontSize: { xs: 'clamp(1rem,4vw,80px)' },
             }}
           >
             {GENERATION.mainTitle}
@@ -59,7 +59,7 @@ export const GenerationCareIntro = () => {
 
       {/* 버튼 영역 */}
       <MotionBox ref={buttonsRef} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8, delay: 0.3 }}>
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 5 }} justifyContent='center' alignItems='center'>
+        <Stack direction={{ xs: 'row', sm: 'row', xl: 'row' }} spacing={{ xs: 2, md: 5 }} justifyContent='center' alignItems='center'>
           <GenerationButton image={childImg} text='아동 성장' url={PATH.CARE_CHILD} />
           <GenerationButton image={adultImg} text='성인 역할' url={PATH.CARE_ADULT} />
           <GenerationButton image={seniorImg} text='노인 웰빙' url={PATH.CARE_SENIOR} />

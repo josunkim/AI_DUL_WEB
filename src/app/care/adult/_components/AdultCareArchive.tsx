@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box } from '@mui/material';
-import calendarImg from '@/assets/img/calendarImg.png';
+import achaive from '/public/assets/img/calendar.svg';
 import { ADULT_CARE_ARCHIVE } from '../core/text';
 
 const MotionBox = motion.create(Box);
@@ -20,7 +20,7 @@ const AdultCareArchive = () => {
       component='section'
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column-reverse', md: 'row' },
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
@@ -51,7 +51,8 @@ const AdultCareArchive = () => {
         <MotionBox
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+          whileHover={{ scale: 1.1, zIndex: 7 }}
+          transition={{ type: 'spring', stiffness: 100, duration: 0.5, delay: 0.1, ease: 'easeOut' }}
           sx={{
             position: 'relative',
             width: 'clamp(120px, 20.8vw, 400px)',
@@ -59,7 +60,7 @@ const AdultCareArchive = () => {
             zIndex: 10,
           }}
         >
-          <Image src={calendarImg} alt='아카이브 앱 화면' fill style={{ borderRadius: 16, objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.25))' }} />
+          <Image src={achaive} alt='아카이브 앱 화면' fill style={{ borderRadius: 16, objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.25))' }} />
         </MotionBox>
       </MotionBox>
 

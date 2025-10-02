@@ -1,16 +1,27 @@
 import { createTheme } from '@mui/material/styles';
+import { COLORS, DARK_COLORS } from './colors';
 
-export const createAppTheme = () => {
+export const createAppTheme = (mode: 'light' | 'dark') => {
+  const paletteColors = mode === 'light' ? COLORS : DARK_COLORS;
   return createTheme({
     palette: {
-      mode: 'light',
-      primary: { main: '#1976d2', light: '#63a4ff', dark: '#004ba0', contrastText: '#fff' },
+      mode,
+      primary: { main: paletteColors.Black[200] },
       secondary: { main: '#b45309', light: '#fbbf24', dark: '#78350f', contrastText: '#fff' },
-      background: { paper: '#F5F5F5', default: '#fff' },
-      info: { main: '#F0F4F8' },
+      background: mode === 'light' ? { default: '#ffffff' } : { default: '#121212' },
+      text: mode === 'light' ? { primary: '#000000', secondary: '#555555' } : { primary: '#ffffff', secondary: '#aaaaaa' },
+      Black: paletteColors.Black,
+      Grayscale: paletteColors.Grayscale,
+      PrimaryBlue: paletteColors.PrimaryBlue,
+      White: paletteColors.White,
+      SecondaryYellow: paletteColors.SecondaryYellow,
+      SecondaryRed: paletteColors.SecondaryRed,
+      Line: paletteColors.Line,
+      Background: paletteColors.Background,
+      NeutralGray: paletteColors.NeutralGray,
     },
     typography: {
-      fontFamily: 'Geist, Arial, sans-serif',
+      fontFamily: 'Pretendard Variable, sans-serif',
     },
   });
 };

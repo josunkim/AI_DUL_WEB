@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Box } from '@mui/material';
 import { ADULT_CARE_AGENT_AI } from '../core/text';
-import calendarImg from '@/assets/img/calendarImg.png';
+import aitalk from '/public/assets/img/ai_talk.svg';
 
 const MotionBox = motion.create(Box);
 
@@ -42,7 +42,6 @@ const AdultCareAgentAi = () => {
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          maxWidth: 'clamp(300px, 60vw, 1152px)',
           height: 'clamp(200px, 27.08vw, 520px)',
           pr: 'clamp(1rem, 4vw, 4rem)',
           gap: 2,
@@ -67,7 +66,7 @@ const AdultCareAgentAi = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(20px, 1.875vw, 36px)', whiteSpace: 'pre-line' }}
+          sx={{ fontWeight: 600, mb: 3, fontSize: 'clamp(1rem, 1.875vw, 2rem)', whiteSpace: 'pre-line' }}
         >
           {ADULT_CARE_AGENT_AI.subtitle}
         </MotionBox>
@@ -76,7 +75,7 @@ const AdultCareAgentAi = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-          sx={{ fontSize: 'clamp(1rem, 1.5625vw, 30px)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
+          sx={{ fontSize: 'clamp(0.8rem, 2vw, 2rem)', lineHeight: 1.6, whiteSpace: 'pre-line' }}
         >
           {ADULT_CARE_AGENT_AI.description}
         </MotionBox>
@@ -103,7 +102,8 @@ const AdultCareAgentAi = () => {
         <MotionBox
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+          whileHover={{ scale: 1.1, zIndex: 7 }}
+          transition={{ type: 'spring', stiffness: 100, duration: 0.5, delay: 0.1, ease: 'easeOut' }}
           sx={{
             position: 'relative',
             width: 'clamp(120px, 20.8vw, 400px)',
@@ -112,7 +112,7 @@ const AdultCareAgentAi = () => {
           }}
         >
           <Image
-            src={calendarImg}
+            src={aitalk}
             alt='AdultCareAgentAi 이미지'
             fill
             style={{

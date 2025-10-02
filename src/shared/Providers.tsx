@@ -4,7 +4,7 @@ import { createAppTheme } from '../../public/theme/theme';
 import ErrorBoundary from '@/shared/components/ErrorBoundary';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  const theme = createAppTheme();
+  const theme = createAppTheme('light');
 
   return (
     <ThemeProvider theme={theme}>

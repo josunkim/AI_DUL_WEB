@@ -71,7 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <head></head>
+      <head>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css' />
+      </head>
       <body>
         <GlobalStyles
           styles={{

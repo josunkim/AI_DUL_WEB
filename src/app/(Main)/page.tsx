@@ -12,13 +12,10 @@ import SectionWhatWeDo from './_components/SectionWhatWeDo';
 import { NicheSection } from './_components/NicheSection';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 export default function Home() {
   return (
     <Stack spacing={0}>
-      <Stack width={'100%'} height={'100%'} minHeight={'100vh'} />
       <Swiper
         direction='horizontal'
         slidesPerView={1}
@@ -27,7 +24,7 @@ export default function Home() {
         speed={1000}
         autoplay={{ delay: 5200, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        style={{ width: '100%', height: 'calc(100vh - 64px)', marginTop: '64px', position: 'fixed', zIndex: -1 }}
+        style={{ width: '100%', height: 'calc(100vh - 64px)', marginTop: '64px' }}
       >
         {/* Slide 1 */}
         <SwiperSlide>
@@ -37,13 +34,45 @@ export default function Home() {
         </SwiperSlide>
         {/* Slide 2 */}
         <SwiperSlide>
-          <BackgroundVideo videoSrc='/assets/video/section2Video.mp4' playbackRate={2}>
+          <Stack width={'100%'} height={'100%'} direction={'row'} position={'relative'}>
+            <video
+              style={{
+                width: '50%',
+                height: '100%',
+                objectFit: 'cover',
+                top: 0,
+                left: 0,
+                zIndex: 0,
+              }}
+              src={'/assets/video/female_aging.mp4'}
+              autoPlay
+              loop
+              preload='auto'
+              muted
+              playsInline
+            />
+            <video
+              style={{
+                width: '50%',
+                height: '100%',
+                objectFit: 'cover',
+                top: 0,
+                left: 0,
+                zIndex: 0,
+              }}
+              src={'/assets/video/male_aging.mp4'}
+              autoPlay
+              loop
+              preload='auto'
+              muted
+              playsInline
+            />
+
             <Section2Text />
-          </BackgroundVideo>
+          </Stack>
         </SwiperSlide>
       </Swiper>
       {/* Other Sections */}
-
       <SectionWhatWeDo />
       <MainSlogan />
       <GenerationCareIntro />

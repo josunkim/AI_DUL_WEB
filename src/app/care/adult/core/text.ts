@@ -6,7 +6,7 @@ export const ADULT_MAIN = {
 export const ADULT_CARE_AGENT_AI = {
   title: '엔젤: 퍼스널 상담 에이전트 AI',
   subtitle: ' "상담소까지 갈 문제는 아닌데 궁금해요"\n 이제 망설이지 마세요',
-  description: "AI '엔젤'은  우리 가족 전담 상담 챗봇으로,\n우리 가족 특성을 정확하게 이해한 전문가 조언을 24시간 곁에서 제공합니다.\n내 주머니 속 가족 전담 전문가를 경험해 보세요",
+  description: "AI '엔젤'은  우리 가족 전담 상담 챗봇으로,\n우리 가족 특성을 정확하게 이해한\n 전문가 조언을 24시간 곁에서 제공합니다.\n내 주머니 속 가족 전담 전문가를 경험해 보세요",
 };
 
 export const ADULT_CARE_ARCHIVE = {
@@ -35,7 +35,7 @@ export const ADULT_CARE_NOTE = {
 };
 
 export const ADULT_CARE_PARENTS = {
-  title: "Parent's AI.DUL",
+  title: "Parent's AI.DUL:\n i-ANGERL",
   description: '전문 검사를 기반으로 분석된\n가족 개개인의 특성을 통해\n잠재된 문제를 예측하고\n맞춤형 데일리 양육 코칭과\n24시간 전문 AI 상담을 제공합니다',
 };
 

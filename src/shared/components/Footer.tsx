@@ -4,9 +4,9 @@ import { Stack, Typography } from '@mui/material';
 import AppDownloadButton from '@/shared/components/AppDownloadButton';
 import SnsIconButton from '@/shared/components/SnsIconButton';
 
-import googlePlayIcon from '@/assets/icon/googlePlay_Icon.png';
-import appleStoreIcon from '@/assets/icon/apple_Icon.png';
-import instagramIcon from '@/assets/icon/instagram_Icon.png';
+import googlePlayIcon from '/public/assets/icon/googlePlay_Icon.svg';
+import appleStoreIcon from '/public/assets/icon/apple_Icon.svg';
+import instagramIcon from '/public/assets/icon/instagram_Icon.svg';
 import { Contact } from './Contact';
 import { FOOTER } from '../Constant';
 

@@ -9,6 +9,7 @@ export const Section2Text = () => {
   return (
     <Box
       display='flex'
+      position={'absolute'}
       justifyContent='center'
       alignItems='flex-end'
       height='100vh'
@@ -29,16 +30,15 @@ export const Section2Text = () => {
         sx={{
           position: 'relative',
           zIndex: 10,
-          pb: { xs: 5, md: 10, xl: 10 }, // padding-bottom 단계별
-          fontSize: 'clamp(0.9rem, 2vw, 2.75rem)',
-          lineHeight: 'clamp(1.2rem, 2.8vw, 3.5rem)',
+          pb: { xs: 10, md: 10, xl: 10 }, // padding-bottom 단계별
+          fontSize: 'clamp(0.5rem, 2vw, 2.75rem)',
         }}
       >
         {SECTION2.headline}&nbsp;
         <Box
           component='span'
           sx={{
-            fontSize: 'clamp(1.1rem, 3vw, 3.5rem)',
+            fontSize: 'clamp(1rem, 3vw, 3.5rem)',
             fontWeight: 'inherit',
           }}
         >

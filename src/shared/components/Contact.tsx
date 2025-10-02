@@ -5,8 +5,8 @@ import { Box, Stack, SxProps, Typography } from '@mui/material';
 import { CONTACT } from '../Constant';
 
 export const Contact = () => {
-  const titleStyle: SxProps = { fontSize: { xs: '1.5rem', md: '1.8rem', xl: '2rem' }, fontWeight: 'bold' };
-  const descriptionStyle: SxProps = { whiteSpace: 'pre-line', fontSize: { xs: '1rem', md: '1.25rem' } };
+  const titleStyle: SxProps = { fontSize: 'clamp(1rem,2vw,2rem)', fontWeight: 'bold' };
+  const descriptionStyle: SxProps = { whiteSpace: 'pre-line', fontSize: 'clamp(0.7rem,2vw,2rem)' };
   return (
     <Box
       sx={{
@@ -26,7 +26,7 @@ export const Contact = () => {
 
       {/* 정보 영역 */}
       <Stack width={'60%'} justifyContent={'space-between'}>
-        <Typography variant='h2' sx={{ fontSize: { xs: '2rem', md: '3rem', xl: '3.5rem' }, fontWeight: 'bold', mb: 3 }}>
+        <Typography variant='h2' sx={{ fontSize: 'clamp(1rem,2vw,2.5rem)', fontWeight: 'bold', mb: 3 }}>
           {CONTACT.title}
         </Typography>
 

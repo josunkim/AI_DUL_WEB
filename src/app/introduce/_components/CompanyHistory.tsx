@@ -1,5 +1,6 @@
 'use client';
 
+import HistoryPage from '@/shared/components/HistorySection';
 import { Box, Typography } from '@mui/material';
 
 export const CompanyHistory = () => {
@@ -7,7 +8,7 @@ export const CompanyHistory = () => {
     <Box
       component='section'
       sx={{
-        height: '100vh',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
@@ -25,6 +26,7 @@ export const CompanyHistory = () => {
         >
           회사 연혁
         </Typography>
+        <HistoryPage />
       </Box>
     </Box>
   );
